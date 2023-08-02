@@ -38,10 +38,10 @@ protected:
     UPROPERTY(BlueprintReadWrite, EditAnywhere)
     float AnimationTranslationY;
     
-    UPROPERTY(EditAnywhere, NoClear)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NoClear)
     TSubclassOf<UCoreHudScoreAlertItem> CoreHudScoreAlertItemClass;
     
-    UPROPERTY(EditAnywhere, NoClear)
+    UPROPERTY(BlueprintReadWrite, EditAnywhere, NoClear)
     TSubclassOf<UCoreHudStatusEffectAlertItem> CoreHudStatusEffectAlertItemClass;
     
     UPROPERTY(BlueprintReadWrite, meta=(BindWidget))
@@ -54,7 +54,7 @@ private:
     UPROPERTY(BlueprintReadOnly, Export, Transient, meta=(AllowPrivateAccess=true))
     TArray<UCoreBaseUserWidget*> _pendingAlerts;
     
-    UPROPERTY(Export, Transient)
+    UPROPERTY(BlueprintReadOnly, Export, Transient, meta = (AllowPrivateAccess = true))
     TArray<UCoreHudScoreAlertItem*> _scoreAlertPool;
     
     UPROPERTY(Export, Transient)
