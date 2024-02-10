@@ -1,617 +1,668 @@
 #include "CamperPlayer.h"
-#include "Net/UnrealNetwork.h"
-#include "CharacterPositionRecorderComponent.h"
-#include "StalkedComponent.h"
-#include "TerrorRadiusReceiverComponent.h"
-#include "Components/CapsuleComponent.h"
-#include "CamperBloodTrailComponent.h"
-#include "ScreamComponent.h"
-#include "SpherePlayerOverlapComponent.h"
-#include "MoveComponentToComponent.h"
-#include "CamperSlashableComponent.h"
-#include "HookableComponent.h"
-#include "CamperHealthComponent.h"
-#include "CamperStillnessTrackerComponent.h"
-#include "CameraAttachmentComponent.h"
 #include "DBDPawnSensingComponent.h"
+#include "SpherePlayerOverlapComponent.h"
+#include "Engine/EngineTypes.h"
 #include "SurviveTimerScoreEventComponent.h"
-#include "ChargeableComponent.h"
-#include "KillerInstinctComponent.h"
+#include "ESkillCheckCustomType.h"
+#include "Net/UnrealNetwork.h"
+#include "EAuthoritativeMovementFlag.h"
+#include "EImmobilizedState.h"
+#include "ScreamComponent.h"
+#include "CamperStillnessTrackerComponent.h"
+#include "MoriableComponent.h"
+#include "CameraAttachmentComponent.h"
+#include "EHealthType.h"
+#include "UObject/NoExportTypes.h"
+#include "EGuidedState.h"
+#include "MoveComponentToComponent.h"
+#include "CarriedMovementComponent.h"
 #include "CharmSpawnerComponent.h"
+#include "Components/CapsuleComponent.h"
+#include "StalkedComponent.h"
+#include "CamperHealthComponent.h"
+#include "CharacterPositionRecorderComponent.h"
+#include "CamperSlashableComponent.h"
+#include "ChargeableComponent.h"
+#include "CamperBloodTrailComponent.h"
+#include "HookableComponent.h"
 #include "ProtectionHitComponent.h"
 #include "CamperEndGameComponent.h"
 
-class UDBDCamperData;
-class AActor;
-class ACamperPlayer;
-class UCamperAnimInstance;
-class ADBDPlayer;
-class UAkComponent;
-class APawn;
 class UPrimitiveComponent;
-class AReverseBearTrap;
+class UAkComponent;
+class ADBDPlayer;
+class AActor;
 class UAnimationMontageSlave;
+class APawn;
+class AReverseBearTrap;
+class ACamperPlayer;
 class UDBDClipRegionComponent;
 class UChaseeCharacterComponent;
 class UInteractionDefinition;
 
-void ACamperPlayer::UpdateKillerDistanceEvent(float deltaSeconds) {
-}
+void ACamperPlayer::UpdateHealingTimer(float deltaTime)
+{
 
-void ACamperPlayer::UpdateHealingTimer(float deltaTime) {
 }
 
+void ACamperPlayer::TriggerAfflictionHUDFeedback()
+{
 
-
-void ACamperPlayer::TriggerAfflictionHUDFeedback() {
 }
 
-void ACamperPlayer::StopHealingTimer() {
-}
+void ACamperPlayer::StopHealingTimer()
+{
 
-void ACamperPlayer::StartHealingTimer(float time) {
 }
 
+void ACamperPlayer::StartHealingTimer(float time)
+{
 
-void ACamperPlayer::SetRevealedSurvivor(ACamperPlayer* survivor) {
 }
 
+void ACamperPlayer::SetBeingCarried(bool isBeingCarried, ADBDPlayer* carrier)
+{
 
-void ACamperPlayer::SetIsSkillCheckFailed(bool isSkillCheckFailed) {
 }
 
-void ACamperPlayer::SetIsHealingKOCamper(bool isHealingKOCamper) {
-}
+void ACamperPlayer::Server_SetRunInput_Implementation(bool pressed)
+{
 
-void ACamperPlayer::SetImmobilized(ECamperImmobilizeState state) {
 }
 
-void ACamperPlayer::SetGuidedActionLocal(ECamperGuidedAction action) {
-}
+void ACamperPlayer::Server_SetOverlappingEscape_Implementation(AActor* escape)
+{
 
-void ACamperPlayer::SetGuidedAction(ECamperGuidedAction action) {
 }
 
-void ACamperPlayer::SetBeingCarried(bool NewIsBeingCarried, ADBDPlayer* carrier) {
-}
+void ACamperPlayer::RunLocked(bool lock)
+{
 
-void ACamperPlayer::SetAutoInteractionMashEnabled(bool enabled) {
 }
 
-void ACamperPlayer::Server_SetRunInput_Implementation(bool pressed) {
-}
-bool ACamperPlayer::Server_SetRunInput_Validate(bool pressed) {
-    return true;
-}
+void ACamperPlayer::ResetPotentialSaviors()
+{
 
-void ACamperPlayer::Server_SetOverlappingEscape_Implementation(AActor* NewEscape) {
-}
-bool ACamperPlayer::Server_SetOverlappingEscape_Validate(AActor* NewEscape) {
-    return true;
 }
 
-void ACamperPlayer::Server_SetImmobilized_Implementation(ECamperImmobilizeState state) {
-}
-bool ACamperPlayer::Server_SetImmobilized_Validate(ECamperImmobilizeState state) {
-    return true;
-}
+void ACamperPlayer::ResetCameraAttach()
+{
 
-void ACamperPlayer::Server_SendLeftRightMashedInput_Implementation(bool pressed) {
-}
-bool ACamperPlayer::Server_SendLeftRightMashedInput_Validate(bool pressed) {
-    return true;
 }
 
-void ACamperPlayer::Server_SendInteractMashedInput_Implementation(bool pressed) {
-}
-bool ACamperPlayer::Server_SendInteractMashedInput_Validate(bool pressed) {
-    return true;
-}
+void ACamperPlayer::OnUnhooked()
+{
 
-void ACamperPlayer::RunLocked(bool lock) {
 }
 
-void ACamperPlayer::ResetPotentialSaviors() {
-}
+void ACamperPlayer::OnRep_SprintEffect()
+{
 
-void ACamperPlayer::ResetCameraAttach() {
 }
 
+void ACamperPlayer::OnRep_RunInputPressed()
+{
 
-void ACamperPlayer::OnUnhooked() {
 }
 
-void ACamperPlayer::OnRep_SprintEffect() {
-}
+void ACamperPlayer::OnProximityEntered(UPrimitiveComponent* hitComponent, AActor* otherActor, UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
+{
 
-void ACamperPlayer::OnRep_RunInputPressed() {
 }
 
-void ACamperPlayer::OnProximityEntered(UPrimitiveComponent* hitComponent, AActor* otherActor, UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult) {
+void ACamperPlayer::OnPickUpEnter(ADBDPlayer* picker, float transitionTime)
+{
+
 }
 
+void ACamperPlayer::OnPickUpDenied()
+{
 
-void ACamperPlayer::OnPickUpEnter(ADBDPlayer* picker, float transitionTime) {
 }
 
-void ACamperPlayer::OnPickUpDenied() {
-}
+void ACamperPlayer::OnPawnSensed(APawn* pawn)
+{
 
-void ACamperPlayer::OnPawnSensed(APawn* pawn) {
 }
 
-void ACamperPlayer::OnObsessionChanged(ACamperPlayer* newObsession, ACamperPlayer* previousObsession) {
-}
+void ACamperPlayer::OnObsessionChanged(ACamperPlayer* newObsession, ACamperPlayer* previousObsession)
+{
 
-void ACamperPlayer::OnHpSlotSkillCheckResponseAesthetic(bool success, bool bonus, ADBDPlayer* player, bool triggerLoudNoise, bool hadInput, ESkillCheckCustomType type, float chargeChange) {
 }
 
+void ACamperPlayer::OnHpSlotSkillCheckResponseAesthetic(bool success, bool bonus, ADBDPlayer* player, bool triggerLoudNoise, bool hadInput, ESkillCheckCustomType type, float chargeChange)
+{
 
-void ACamperPlayer::OnHooked() {
 }
 
-void ACamperPlayer::OnFinishedPlaying() {
-}
+void ACamperPlayer::OnHooked()
+{
 
-void ACamperPlayer::OnDroppedStart() {
 }
+
+void ACamperPlayer::OnFinishedPlaying()
+{
 
-void ACamperPlayer::OnDroppedEnd(bool clearLeader) {
 }
 
+void ACamperPlayer::OnDroppedStart(ADBDPlayer* dropper)
+{
 
-void ACamperPlayer::Multicast_SetOverlappingEscape_Implementation(AActor* NewEscape) {
 }
 
-void ACamperPlayer::Multicast_SetImmobilized_Implementation(ECamperImmobilizeState state) {
-}
-bool ACamperPlayer::Multicast_SetImmobilized_Validate(ECamperImmobilizeState state) {
-    return true;
-}
+void ACamperPlayer::OnDroppedEnd(bool clearLeader)
+{
 
-void ACamperPlayer::Multicast_SetHookEscapeAutoFail_Implementation(bool enabled) {
 }
-bool ACamperPlayer::Multicast_SetHookEscapeAutoFail_Validate(bool enabled) {
-    return true;
-}
 
-void ACamperPlayer::Multicast_SetGuidedAction_Implementation(ECamperGuidedAction action) {
-}
-bool ACamperPlayer::Multicast_SetGuidedAction_Validate(ECamperGuidedAction action) {
-    return true;
-}
+void ACamperPlayer::Multicast_SetOverlappingEscape_Implementation(AActor* escape)
+{
 
-void ACamperPlayer::Multicast_SetAuthoritativeMovementFlag_Implementation(EAuthoritativeMovementFlag flag, bool value) {
 }
-bool ACamperPlayer::Multicast_SetAuthoritativeMovementFlag_Validate(EAuthoritativeMovementFlag flag, bool value) {
-    return true;
-}
 
-void ACamperPlayer::Multicast_RemoveReverseBearTrap_Implementation() {
-}
-bool ACamperPlayer::Multicast_RemoveReverseBearTrap_Validate() {
-    return true;
-}
+void ACamperPlayer::Multicast_SetImmobilized_Implementation(EImmobilizedState state)
+{
 
-void ACamperPlayer::MoveToOwnerCarryJoint() {
 }
 
+void ACamperPlayer::Multicast_SetHookEscapeAutoFail_Implementation(bool enabled)
+{
 
-
-void ACamperPlayer::Local_SetImmobilized(ECamperImmobilizeState state) {
 }
+
+void ACamperPlayer::Multicast_SetAuthoritativeMovementFlag_Implementation(EAuthoritativeMovementFlag flag, bool value)
+{
 
-void ACamperPlayer::Kill(bool sacrificed, bool left) {
 }
 
+void ACamperPlayer::Multicast_RemoveReverseBearTrap_Implementation()
+{
 
-bool ACamperPlayer::IsUnintentionallyImmobilized() const {
-    return false;
 }
 
-bool ACamperPlayer::IsUnhookingSelf() const {
-    return false;
-}
+void ACamperPlayer::Multicast_EscapeItemEvents_Implementation(bool isItemFromSpawn)
+{
 
-bool ACamperPlayer::IsTrapped() const {
-    return false;
 }
 
-bool ACamperPlayer::IsSacrificed() const {
-    return false;
-}
+void ACamperPlayer::Local_SetImmobilized(EImmobilizedState state)
+{
 
-bool ACamperPlayer::IsRunLocked() {
-    return false;
 }
+
+void ACamperPlayer::Kill(EHealthType healthType)
+{
 
-bool ACamperPlayer::IsObsessionTarget() const {
-    return false;
 }
 
-bool ACamperPlayer::IsMovementGuided() const {
-    return false;
+bool ACamperPlayer::IsUnintentionallyImmobilized() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsInNeed() const {
-    return false;
+bool ACamperPlayer::IsUnhookingSelf() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsInDeathBed() const {
-    return false;
+bool ACamperPlayer::IsTrapped() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsImmobilized() const {
-    return false;
+bool ACamperPlayer::IsSacrificed() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsHooked() const {
-    return false;
+bool ACamperPlayer::IsRunLocked()
+{
+	return false;
 }
 
-bool ACamperPlayer::IsHealingTimerExpired() const {
-    return false;
+bool ACamperPlayer::IsObsessionTarget() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsGuidedBySlasher() const {
-    return false;
+bool ACamperPlayer::IsMovementGuided() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsEscaped() const {
-    return false;
+bool ACamperPlayer::IsInNeed() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsDeadOrInParadise() const {
-    return false;
+bool ACamperPlayer::IsInDeathBed() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsCrawling() const {
-    return false;
+bool ACamperPlayer::IsImmobilized() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingUnhooked() const {
-    return false;
+bool ACamperPlayer::IsHooked() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingPutOnHook() const {
-    return false;
+bool ACamperPlayer::IsHealingTimerExpired() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingPutDown() const {
-    return false;
+bool ACamperPlayer::IsGuidedBySlasher() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingPulledFromCloset() const {
-    return false;
+bool ACamperPlayer::IsEscaped() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingPickedUp() const {
-    return false;
+bool ACamperPlayer::IsDeadOrInParadise() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingMended() const {
-    return false;
+bool ACamperPlayer::IsCrawling() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingKilled() const {
-    return false;
+bool ACamperPlayer::IsBeingUnhooked() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingInteractedWith() const {
-    return false;
+bool ACamperPlayer::IsBeingPutOnHook() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingHealed() const {
-    return false;
+bool ACamperPlayer::IsBeingPutDown() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingEndGameSacrificed() const {
-    return false;
+bool ACamperPlayer::IsBeingPulledFromCloset() const
+{
+	return false;
 }
 
-bool ACamperPlayer::IsBeingCarried() const {
-    return false;
+bool ACamperPlayer::IsBeingPickedUp() const
+{
+	return false;
 }
 
-void ACamperPlayer::Input_Wiggle(float input) {
+bool ACamperPlayer::IsBeingMended() const
+{
+	return false;
 }
 
-void ACamperPlayer::Input_ToggleRun() {
+bool ACamperPlayer::IsBeingKilled() const
+{
+	return false;
 }
 
-void ACamperPlayer::HatchEscapeZoneEntered(AActor* NewEscape) {
+bool ACamperPlayer::IsBeingInteractedWith() const
+{
+	return false;
 }
 
-bool ACamperPlayer::HasReverseBearTrap() const {
-    return false;
+bool ACamperPlayer::IsBeingHealed() const
+{
+	return false;
 }
 
-bool ACamperPlayer::HasHitEvents() const {
-    return false;
+bool ACamperPlayer::IsBeingEndGameSacrificed() const
+{
+	return false;
 }
 
-bool ACamperPlayer::HasGuidedAction() const {
-    return false;
+bool ACamperPlayer::IsBeingCarried() const
+{
+	return false;
 }
 
+void ACamperPlayer::Input_ToggleRun()
+{
 
-FRotator ACamperPlayer::GetToAimPointRotation() const {
-    return FRotator{};
 }
 
-UTerrorRadiusReceiverComponent* ACamperPlayer::GetTerrorRadiusReceiverComponent() const {
-    return NULL;
-}
+void ACamperPlayer::HatchEscapeZoneEntered(AActor* escape)
+{
 
-float ACamperPlayer::GetStillness() const {
-    return 0.0f;
 }
 
-UScreamComponent* ACamperPlayer::GetScreamComponent() const {
-    return NULL;
+bool ACamperPlayer::HasReverseBearTrap() const
+{
+	return false;
 }
 
-AReverseBearTrap* ACamperPlayer::GetReverseBearTrap() const {
-    return NULL;
+bool ACamperPlayer::HasHitEvents() const
+{
+	return false;
 }
 
-ACamperPlayer* ACamperPlayer::GetRevealedSurvivor() const {
-    return NULL;
+bool ACamperPlayer::HasGuidedAction() const
+{
+	return false;
 }
 
-float ACamperPlayer::GetPercentHealingTimer() const {
-    return 0.0f;
+FRotator ACamperPlayer::GetToAimPointRotation() const
+{
+	return FRotator{};
 }
 
-AActor* ACamperPlayer::GetOverlappingEscape() const {
-    return NULL;
+float ACamperPlayer::GetStillness() const
+{
+	return 0.0f;
 }
 
-float ACamperPlayer::GetObsessionTargetWeight() const {
-    return 0.0f;
+AReverseBearTrap* ACamperPlayer::GetReverseBearTrap() const
+{
+	return NULL;
 }
 
-int32 ACamperPlayer::GetNumberOfEntityRenderRegions() const {
-    return 0;
+float ACamperPlayer::GetPercentHealingTimer() const
+{
+	return 0.0f;
 }
 
-UAkComponent* ACamperPlayer::GetNoOcclusionAudioComponent() const {
-    return NULL;
+AActor* ACamperPlayer::GetOverlappingEscape() const
+{
+	return NULL;
 }
 
-UAnimationMontageSlave* ACamperPlayer::GetMontageFollower() {
-    return NULL;
+float ACamperPlayer::GetObsessionTargetWeight() const
+{
+	return 0.0f;
 }
 
-UMoveComponentToComponent* ACamperPlayer::GetMeshMover() const {
-    return NULL;
+int32 ACamperPlayer::GetNumberOfEntityRenderRegions() const
+{
+	return 0;
 }
 
-float ACamperPlayer::GetMaxGruntDistance(bool isLocalPlayerKiller) const {
-    return 0.0f;
+UAkComponent* ACamperPlayer::GetNoOcclusionAudioComponent() const
+{
+	return NULL;
 }
 
-bool ACamperPlayer::GetIsSkillCheckFailed() {
-    return false;
+UAnimationMontageSlave* ACamperPlayer::GetMontageFollower()
+{
+	return NULL;
 }
 
-bool ACamperPlayer::GetIsHealingKOCamper() {
-    return false;
+UMoveComponentToComponent* ACamperPlayer::GetMeshMover() const
+{
+	return NULL;
 }
 
-bool ACamperPlayer::GetIsBeingDissolved() const {
-    return false;
+float ACamperPlayer::GetMaxGruntDistance(bool isLocalPlayerKiller) const
+{
+	return 0.0f;
 }
 
-ECamperImmobilizeState ACamperPlayer::GetImmobilizedState() const {
-    return ECamperImmobilizeState::VE_None;
+bool ACamperPlayer::GetIsWiggleProgressionAllowed() const
+{
+	return false;
 }
 
-UHookableComponent* ACamperPlayer::GetHookableComponent() const {
-    return NULL;
+bool ACamperPlayer::GetIsBeingDissolved() const
+{
+	return false;
 }
 
-UCamperHealthComponent* ACamperPlayer::GetHealthComponent() const {
-    return NULL;
+EImmobilizedState ACamperPlayer::GetImmobilizedState() const
+{
+	return EImmobilizedState::VE_None;
 }
 
-ECamperGuidedAction ACamperPlayer::GetGuidedAction() const {
-    return ECamperGuidedAction::VE_None;
+UHookableComponent* ACamperPlayer::GetHookableComponent() const
+{
+	return NULL;
 }
 
-UDBDClipRegionComponent* ACamperPlayer::GetEntityRenderRegionAtIndex(int32 InIndex) const {
-    return NULL;
+UCamperHealthComponent* ACamperPlayer::GetHealthComponent() const
+{
+	return NULL;
 }
 
-float ACamperPlayer::GetDropStaggerTimeLeft() const {
-    return 0.0f;
+EGuidedState ACamperPlayer::GetGuidedAction() const
+{
+	return EGuidedState::VE_None;
 }
 
-float ACamperPlayer::GetDropStaggerPercentTimeElapsed() const {
-    return 0.0f;
+UDBDClipRegionComponent* ACamperPlayer::GetEntityRenderRegionAtIndex(int32 InIndex) const
+{
+	return NULL;
 }
 
-UChaseeCharacterComponent* ACamperPlayer::GetChaseeCharacterComponent() const {
-    return NULL;
+UChaseeCharacterComponent* ACamperPlayer::GetChaseeCharacterComponent() const
+{
+	return NULL;
 }
 
-UCamperStillnessTrackerComponent* ACamperPlayer::GetCamperStillnessComponent() {
-    return NULL;
+UCamperStillnessTrackerComponent* ACamperPlayer::GetCamperStillnessComponent()
+{
+	return NULL;
 }
 
-UDBDCamperData* ACamperPlayer::GetCamperData() const {
-    return NULL;
+UCameraAttachmentComponent* ACamperPlayer::GetCameraAttachmentComponent() const
+{
+	return NULL;
 }
 
-UCamperAnimInstance* ACamperPlayer::GetCamperAnimInstance() const {
-    return NULL;
+UCamperBloodTrailComponent* ACamperPlayer::GetBloodTrailComponent() const
+{
+	return NULL;
 }
 
-UCameraAttachmentComponent* ACamperPlayer::GetCameraAttachmentComponent() const {
-    return NULL;
+UAkComponent* ACamperPlayer::GetAttenuationAudioComponent() const
+{
+	return NULL;
 }
 
-UCamperBloodTrailComponent* ACamperPlayer::GetBloodTrailComponent() const {
-    return NULL;
+TArray<UDBDClipRegionComponent*> ACamperPlayer::GetAllEntityRenderRegions() const
+{
+	return TArray<UDBDClipRegionComponent*>();
 }
 
-TArray<UDBDClipRegionComponent*> ACamperPlayer::GetAllEntityRenderRegions() const {
-    return TArray<UDBDClipRegionComponent*>();
+FVector ACamperPlayer::GetAimPoint() const
+{
+	return FVector{};
 }
+
+void ACamperPlayer::EscapeTutorial()
+{
 
-FVector ACamperPlayer::GetAimPoint() const {
-    return FVector{};
 }
 
+void ACamperPlayer::DetachFromGuidingPlayer()
+{
 
-void ACamperPlayer::EscapeTutorial() {
 }
 
-void ACamperPlayer::Escape(AActor* NewEscape, EEscapeType escapeType) {
+void ACamperPlayer::DBD_SetSurvivorCameraArmLengthCommand(float cameraArmLength)
+{
+
 }
 
+void ACamperPlayer::DBD_SetImmobilized(EImmobilizedState state)
+{
 
-void ACamperPlayer::DetachFromGuidingPlayer() {
 }
-
 
+void ACamperPlayer::DBD_LeaveParadise()
+{
 
-void ACamperPlayer::DBD_SetImmobilized(ECamperImmobilizeState state) {
 }
 
-void ACamperPlayer::DBD_LeaveParadise() {
-}
+void ACamperPlayer::DBD_ForceRun(bool forced)
+{
 
-void ACamperPlayer::DBD_ForceRun(bool forced) {
 }
 
-void ACamperPlayer::DBD_CheatEscaped() {
-}
+void ACamperPlayer::DBD_CheatEscaped()
+{
 
-void ACamperPlayer::DBD_AutoLeftRightMash(bool enabled) {
 }
 
-void ACamperPlayer::DBD_AutoInteractionMash(bool enabled) {
+float ACamperPlayer::ComputeInteractionSuccessPercentage(const UInteractionDefinition* interaction)
+{
+	return 0.0f;
 }
 
-float ACamperPlayer::ComputeInteractionSuccessPercentage(const UInteractionDefinition* interaction) {
-    return 0.0f;
+bool ACamperPlayer::ComputeHookEscapeResult()
+{
+	return false;
 }
 
-bool ACamperPlayer::ComputeHookEscapeResult() {
-    return false;
+bool ACamperPlayer::ComputeBeartrapEscapeResult()
+{
+	return false;
 }
 
-bool ACamperPlayer::ComputeBeartrapEscapeResult() {
-    return false;
-}
+void ACamperPlayer::Client_OnSlashedOutOfTrap_Implementation(ADBDPlayer* requester)
+{
 
-void ACamperPlayer::Client_OnSlashedOutOfTrap_Implementation(ADBDPlayer* requester) {
 }
-bool ACamperPlayer::Client_OnSlashedOutOfTrap_Validate(ADBDPlayer* requester) {
-    return true;
-}
 
-bool ACamperPlayer::CanRushQuietly() const {
-    return false;
+bool ACamperPlayer::CanRushQuietly() const
+{
+	return false;
 }
 
-bool ACamperPlayer::CanBeShocked() const {
-    return false;
+bool ACamperPlayer::CanBeShocked() const
+{
+	return false;
 }
 
-bool ACamperPlayer::CanBePickedUp() const {
-    return false;
+bool ACamperPlayer::CanBePickedUp() const
+{
+	return false;
 }
 
-bool ACamperPlayer::CanBeKilled() const {
-    return false;
+bool ACamperPlayer::CanBeKilled() const
+{
+	return false;
 }
 
-void ACamperPlayer::CallOnDroppedByBearTrap() {
-}
+void ACamperPlayer::CallOnDroppedByBearTrap()
+{
 
-void ACamperPlayer::Authority_OnSlashed(ADBDPlayer* attacker) {
 }
 
-void ACamperPlayer::Authority_DropItemAtLastSafePosition() {
-}
+void ACamperPlayer::Authority_SetImmobilized(EImmobilizedState state)
+{
 
-void ACamperPlayer::AttachToGuidingPlayer() {
 }
 
+void ACamperPlayer::Authority_OnSlashed(ADBDPlayer* attacker)
+{
 
+}
 
+void ACamperPlayer::Authority_ApplySprintEffect()
+{
+
+}
 
+void ACamperPlayer::AttachToGuidingPlayer()
+{
 
+}
 
+void ACamperPlayer::ActionInputReleased()
+{
 
-void ACamperPlayer::ActionInputReleased() {
 }
+
+void ACamperPlayer::ActionInputPressed()
+{
 
-void ACamperPlayer::ActionInputPressed() {
 }
 
-void ACamperPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(ACamperPlayer, _runInputPressed);
-    DOREPLIFETIME(ACamperPlayer, _sprintEffect);
+bool ACamperPlayer::AcceptsHealing() const
+{
+	return false;
 }
 
-ACamperPlayer::ACamperPlayer() {
-    this->InputMashCount = 1.00f;
-    this->InputMashDecayTime = 1.00f;
-    this->isBeingDissolved = false;
-    this->FootprintAudibleRange = 1200.00f;
-    this->StalkedComponent = CreateDefaultSubobject<UStalkedComponent>(TEXT("StalkedComponent"));
-    this->CameraResetToleranceYaw = 2.00f;
-    this->CameraResetTolerancePitch = 2.00f;
-    this->CameraRecenterOffsetYaw = 90.00f;
-    this->CameraRecenterOffsetPitch = 30.00f;
-    this->Gender = EGender::VE_Male;
-    this->DropStaggerDuration = NULL;
-    this->DropStaggerMaxSpeed = NULL;
-    this->TimeforDeathWhileCrawling = 60.00f;
-    this->TimeforDeathWhileHooked = 60.00f;
-    this->SecondsUntilFootprintTrigger = 0.10f;
-    this->TriggerAfflictionHUDIntro = false;
-    this->_stillnessTracker = CreateDefaultSubobject<UCamperStillnessTrackerComponent>(TEXT("StillnessTracker"));
-    this->PartiallyHiddenStillnessThreshold = 0.00f;
-    this->_escape = NULL;
-    this->_overlappingEscape = NULL;
-    this->ProximityZone = CreateDefaultSubobject<USpherePlayerOverlapComponent>(TEXT("ProximityZone"));
-    this->SlashableZone = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Slashable"));
-    this->HookSlashableZone = CreateDefaultSubobject<UCapsuleComponent>(TEXT("HookSlashable"));
-    this->_camperSlashable = CreateDefaultSubobject<UCamperSlashableComponent>(TEXT("CamperSlashable"));
-    this->_terrorRadiusReceiverComponent = CreateDefaultSubobject<UTerrorRadiusReceiverComponent>(TEXT("TerrorRadiusReceiverComponent"));
-    this->CrouchCapsuleHalfHeight = 0.00f;
-    this->IKOffsetRightFoot = 0.00f;
-    this->IKOffsetLeftFoot = 0.00f;
-    this->_camperSensor = CreateDefaultSubobject<UDBDPawnSensingComponent>(TEXT("CamperSensor"));
-    this->_surviveTimerScoreComponent = CreateDefaultSubobject<USurviveTimerScoreEventComponent>(TEXT("SurviveTimerScoreComponent"));
-    this->_healthComponent = CreateDefaultSubobject<UCamperHealthComponent>(TEXT("CamperHealthComponent"));
-    this->_hpSlot01 = CreateDefaultSubobject<UChargeableComponent>(TEXT("HPSlot01"));
-    this->_hpSlot02 = CreateDefaultSubobject<UChargeableComponent>(TEXT("HPSlot02"));
-    this->_mendChargeable = CreateDefaultSubobject<UChargeableComponent>(TEXT("MendChargeable"));
-    this->_bloodTrailSettings = NULL;
-    this->_bloodTrailComponent = CreateDefaultSubobject<UCamperBloodTrailComponent>(TEXT("CamperBloodTrailComponent"));
-    this->_killerInstinctComponent = CreateDefaultSubobject<UKillerInstinctComponent>(TEXT("KillerInstinctComponent"));
-    this->_cameraAttachment = CreateDefaultSubobject<UCameraAttachmentComponent>(TEXT("CameraAttachmentComponent"));
-    this->_charmSpawnerComponent = CreateDefaultSubobject<UCharmSpawnerComponent>(TEXT("CharmSpawnerComponent"));
-    this->_hookableComponent = CreateDefaultSubobject<UHookableComponent>(TEXT("HookableComponent"));
-    this->_protectionHitComponent = CreateDefaultSubobject<UProtectionHitComponent>(TEXT("ProtectionHitComponent"));
-    this->_screamComponent = CreateDefaultSubobject<UScreamComponent>(TEXT("ScreamComponent"));
-    this->_positionRecorder = CreateDefaultSubobject<UCharacterPositionRecorderComponent>(TEXT("Position Recorder"));
-    this->_runInputPressed = false;
-    this->_trapIndicatorActive = false;
-    this->_camperEndGameComponent = CreateDefaultSubobject<UCamperEndGameComponent>(TEXT("CamperEndGameComponent"));
-    this->_noOcclusionAkComponent = NULL;
-    this->_isHealingKOCamper = false;
-    this->_isSkillCheckFailed = false;
-    this->_isBeingSacrificed = false;
-    this->_isWiggleProgressionAllowed = true;
-    this->_meshMover = CreateDefaultSubobject<UMoveComponentToComponent>(TEXT("MeshMover"));
-    this->_sprintEffect = NULL;
+void ACamperPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ACamperPlayer, _escape);
+	DOREPLIFETIME(ACamperPlayer, _lastEscaped);
+	DOREPLIFETIME(ACamperPlayer, _runInputPressed);
+	DOREPLIFETIME(ACamperPlayer, _antiCampSelfUnhookMeterComponent);
+	DOREPLIFETIME(ACamperPlayer, _sprintEffect);
 }
 
+ACamperPlayer::ACamperPlayer()
+{
+	this->ReverseBearTrapAttachSocket = NAME_None;
+	this->isBeingDissolved = false;
+	this->FootprintAudibleRange = 1200.000000;
+	this->StalkedComponent = CreateDefaultSubobject<UStalkedComponent>(TEXT("StalkedComponent"));
+	this->CameraResetToleranceYaw = 2.000000;
+	this->CameraResetTolerancePitch = 2.000000;
+	this->CameraRecenterOffsetYaw = 90.000000;
+	this->CameraRecenterOffsetPitch = 30.000000;
+	this->Gender = EGender::VE_Male;
+	this->DropStaggerDuration = NULL;
+	this->DropStaggerMaxSpeed = NULL;
+	this->TimeforDeathWhileCrawling = 60.000000;
+	this->TimeforDeathWhileHooked = 60.000000;
+	this->SecondsUntilFootprintTrigger = 0.100000;
+	this->TriggerAfflictionHUDIntro = false;
+	this->_storedPlayerController = NULL;
+	this->_stillnessTracker = CreateDefaultSubobject<UCamperStillnessTrackerComponent>(TEXT("StillnessTracker"));
+	this->PartiallyHiddenStillnessThreshold = 0.000000;
+	this->_escape = NULL;
+	this->_overlappingEscape = NULL;
+	this->ProximityZone = CreateDefaultSubobject<USpherePlayerOverlapComponent>(TEXT("ProximityZone"));
+	this->SlashableZone = CreateDefaultSubobject<UCapsuleComponent>(TEXT("Slashable"));
+	this->HookSlashableZone = CreateDefaultSubobject<UCapsuleComponent>(TEXT("HookSlashable"));
+	this->_camperSlashable = CreateDefaultSubobject<UCamperSlashableComponent>(TEXT("CamperSlashable"));
+	this->_moriableComponent = CreateDefaultSubobject<UMoriableComponent>(TEXT("MoriableComponent"));
+	this->CrouchCapsuleHalfHeight = 0.000000;
+	this->IKOffsetRightFoot = 0.000000;
+	this->IKOffsetLeftFoot = 0.000000;
+	this->_camperSensor = CreateDefaultSubobject<UDBDPawnSensingComponent>(TEXT("CamperSensor"));
+	this->_surviveTimerScoreComponent = CreateDefaultSubobject<USurviveTimerScoreEventComponent>(TEXT("SurviveTimerScoreComponent"));
+	this->_foundCampers = TArray<ADBDPlayer*>();
+	this->_potentialSaviors = TArray<ADBDPlayer*>();
+	this->_healthComponent = CreateDefaultSubobject<UCamperHealthComponent>(TEXT("CamperHealthComponent"));
+	this->_hpSlot01 = CreateDefaultSubobject<UChargeableComponent>(TEXT("HPSlot01"));
+	this->_hpSlot02 = CreateDefaultSubobject<UChargeableComponent>(TEXT("HPSlot02"));
+	this->_mendChargeable = CreateDefaultSubobject<UChargeableComponent>(TEXT("MendChargeable"));
+	this->_bloodTrailSettings = NULL;
+	this->_bloodTrailComponent = CreateDefaultSubobject<UCamperBloodTrailComponent>(TEXT("CamperBloodTrailComponent"));
+	this->_cameraAttachment = CreateDefaultSubobject<UCameraAttachmentComponent>(TEXT("CameraAttachmentComponent"));
+	this->_charmSpawnerComponent = CreateDefaultSubobject<UCharmSpawnerComponent>(TEXT("CharmSpawnerComponent"));
+	this->_hookableComponent = CreateDefaultSubobject<UHookableComponent>(TEXT("HookableComponent"));
+	this->_protectionHitComponent = CreateDefaultSubobject<UProtectionHitComponent>(TEXT("ProtectionHitComponent"));
+	this->_screamComponent = CreateDefaultSubobject<UScreamComponent>(TEXT("ScreamComponent"));
+	this->_positionRecorder = CreateDefaultSubobject<UCharacterPositionRecorderComponent>(TEXT("Position Recorder"));
+	this->_lastEscaped = false;
+	this->_runInputPressed = false;
+	this->_trapIndicatorActive = false;
+	this->_camperEndGameComponent = CreateDefaultSubobject<UCamperEndGameComponent>(TEXT("CamperEndGameComponent"));
+	this->_noOcclusionAkComponent = NULL;
+	this->_attenuationAkComponent = NULL;
+	this->_isBeingSacrificed = false;
+	this->_isWiggleProgressionAllowed = true;
+	this->_meshMover = CreateDefaultSubobject<UMoveComponentToComponent>(TEXT("MeshMover"));
+	this->_carriedMovementComponent = CreateDefaultSubobject<UCarriedMovementComponent>(TEXT("CarriedMovementComponent"));
+	this->_antiCampSelfUnhookMeterComponent = NULL;
+	this->_sprintEffect = NULL;
+	this->_sprintOnHitEffectClass = NULL;
+}

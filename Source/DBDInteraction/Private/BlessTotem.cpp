@@ -1,11 +1,6 @@
 #include "BlessTotem.h"
 
-class ATotem;
+UBlessTotem::UBlessTotem()
+{
 
-ATotem* UBlessTotem::GetTotem() const {
-    return NULL;
 }
-
-UBlessTotem::UBlessTotem() {
-}
-

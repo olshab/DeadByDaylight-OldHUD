@@ -1,24 +1,29 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "EPlayerTeam.h"
 #include "HudObjectivesViewData.generated.h"
 
-
 USTRUCT(BlueprintType)
-struct FHudObjectivesViewData {
-    GENERATED_BODY()
-public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    EPlayerTeam playerTeam;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    bool isHatchOpen;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    int32 nbGeneratorsLeft;
+struct FHudObjectivesViewData
+{
+	GENERATED_BODY()
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    int32 requiredActivatedGeneratorCount;
-    
-    DBDUIVIEWINTERFACES_API FHudObjectivesViewData();
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EPlayerTeam playerTeam;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool isHatchOpen;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 nbGeneratorsLeft;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 requiredActivatedGeneratorCount;
+
+public:
+	DBDUIVIEWINTERFACES_API FHudObjectivesViewData();
 };
+
+FORCEINLINE uint32 GetTypeHash(const FHudObjectivesViewData) { return 0; }

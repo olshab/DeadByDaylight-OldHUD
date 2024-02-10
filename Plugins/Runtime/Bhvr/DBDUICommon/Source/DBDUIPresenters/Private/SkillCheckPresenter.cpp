@@ -1,18 +1,6 @@
 #include "SkillCheckPresenter.h"
 
-void USkillCheckPresenter::OnUpdateSkillCheckVisual(bool isActive) {
+USkillCheckPresenter::USkillCheckPresenter()
+{
+	this->SkillCheckWidgetClass = NULL;
 }
-
-void USkillCheckPresenter::OnShowSkillCheckSuccess(bool isBonus) {
-}
-
-void USkillCheckPresenter::OnShowSkillCheckFail() {
-}
-
-void USkillCheckPresenter::OnShowSkillCheck() {
-}
-
-USkillCheckPresenter::USkillCheckPresenter() {
-    this->SkillCheckWidgetClass = NULL;
-}
-

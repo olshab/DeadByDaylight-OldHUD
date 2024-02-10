@@ -1,6 +1,7 @@
 #include "SimpleSpawnEffectsOnAllSurvivorsAddonParams.h"
 
-FSimpleSpawnEffectsOnAllSurvivorsAddonParams::FSimpleSpawnEffectsOnAllSurvivorsAddonParams() {
-    this->_customParam = 0.00f;
+FSimpleSpawnEffectsOnAllSurvivorsAddonParams::FSimpleSpawnEffectsOnAllSurvivorsAddonParams()
+{
+	this->_effectClass = NULL;
+	this->_customParam = 0.0f;
 }
-

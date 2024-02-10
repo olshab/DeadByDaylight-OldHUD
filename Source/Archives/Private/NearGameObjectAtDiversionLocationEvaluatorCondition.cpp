@@ -1,0 +1,6 @@
+#include "NearGameObjectAtDiversionLocationEvaluatorCondition.h"
+
+UNearGameObjectAtDiversionLocationEvaluatorCondition::UNearGameObjectAtDiversionLocationEvaluatorCondition()
+{
+
+}

@@ -1,89 +1,99 @@
 #include "SkillCheck.h"
+#include "SkillCheckResponse.h"
+#include "ESkillCheckCustomType.h"
+#include "SkillCheckDefinition.h"
 
 class UChargeableInteractionDefinition;
-class UInteractionDefinition;
 class ADBDPlayer;
 
-bool USkillCheck::ShouldShowWarning() {
-    return false;
+bool USkillCheck::ShouldShowWarning()
+{
+	return false;
 }
 
-void USkillCheck::Server_OnSkillCheckSuccess_Implementation(FSkillCheckResponse skillCheckResponse) {
-}
-bool USkillCheck::Server_OnSkillCheckSuccess_Validate(FSkillCheckResponse skillCheckResponse) {
-    return true;
+void USkillCheck::Server_OnSkillCheckSuccess_Implementation(FSkillCheckResponse skillCheckResponse)
+{
+
 }
 
-void USkillCheck::Server_OnSkillCheckFailure_Implementation(FSkillCheckResponse skillCheckResponse) {
-}
-bool USkillCheck::Server_OnSkillCheckFailure_Validate(FSkillCheckResponse skillCheckResponse) {
-    return true;
+void USkillCheck::Server_OnSkillCheckFailure_Implementation(FSkillCheckResponse skillCheckResponse)
+{
+
 }
 
-void USkillCheck::Server_DeactivateSkillCheck_Implementation() {
-}
-bool USkillCheck::Server_DeactivateSkillCheck_Validate() {
-    return true;
+void USkillCheck::Server_DeactivateSkillCheck_Implementation()
+{
+
 }
 
-void USkillCheck::Server_ActivateSkillCheck_Implementation(UChargeableInteractionDefinition* interaction, ESkillCheckCustomType type, FSkillCheckDefinition definition) {
-}
-bool USkillCheck::Server_ActivateSkillCheck_Validate(UChargeableInteractionDefinition* interaction, ESkillCheckCustomType type, FSkillCheckDefinition definition) {
-    return true;
+void USkillCheck::Server_ActivateSkillCheck_Implementation(UChargeableInteractionDefinition* interaction, ESkillCheckCustomType skillCheckCustomType, FSkillCheckDefinition definition)
+{
+
 }
 
-void USkillCheck::OnSkillCheckInput() {
+void USkillCheck::OnSkillCheckSuccessTrigger(const bool bonus, const bool insane, ESkillCheckCustomType skillCheckCustomType, const bool failedCountedAsGood)
+{
+
 }
 
-void USkillCheck::Multicast_SkillCheckResponse_Implementation(FSkillCheckResponse skillCheckResponse) {
+void USkillCheck::OnSkillCheckFailureTrigger(const bool hadInput, const bool insane, ESkillCheckCustomType skillCheckCustomType)
+{
+
 }
 
-void USkillCheck::Multicast_OnTriggerSkillCheck_Implementation(UChargeableInteractionDefinition* currentInteraction, ESkillCheckCustomType skillCheckCustomType, const FString& id, const FString& salt) {
+void USkillCheck::Multicast_SkillCheckResponse_Implementation(FSkillCheckResponse skillCheckResponse, bool executeOnlyOnNotControlled)
+{
+
 }
 
-void USkillCheck::Multicast_DeactivateSkillCheck_Implementation() {
+void USkillCheck::Multicast_OnTriggerCustomSkillCheck_Implementation(UChargeableInteractionDefinition* currentInteraction, ESkillCheckCustomType skillCheckCustomType, const FString& id, const FString& salt, const FSkillCheckDefinition& definition)
+{
+
 }
 
-void USkillCheck::Multicast_ActivateSkillCheck_Implementation(UChargeableInteractionDefinition* interaction, ESkillCheckCustomType type, FSkillCheckDefinition definition) {
+void USkillCheck::Multicast_OnTriggerContinuousCustomSkillCheck_Implementation(UChargeableInteractionDefinition* currentInteraction, ESkillCheckCustomType skillCheckCustomType, const FSkillCheckDefinition& definition)
+{
+
 }
 
-void USkillCheck::Local_OnSkillCheckSuccessTrigger(const bool bonus, const bool insane, ESkillCheckCustomType type, const bool failedCountedAsGood) {
+void USkillCheck::Multicast_DeactivateSkillCheck_Implementation()
+{
+
 }
 
-void USkillCheck::Local_OnSkillCheckFailureTrigger(const bool hadInput, const bool insane, ESkillCheckCustomType type) {
+void USkillCheck::Multicast_ActivateSkillCheck_Implementation(UChargeableInteractionDefinition* interaction, ESkillCheckCustomType skillCheckCustomType, FSkillCheckDefinition definition, bool executeOnlyOnNotControlled)
+{
+
 }
 
-void USkillCheck::Local_ActivateSkillCheck(UInteractionDefinition* interaction, float warningSoundDelay) {
+bool USkillCheck::IsOffCenterSkillCheck() const
+{
+	return false;
 }
 
-void USkillCheck::Local_ActivateCustomSkillCheck(ESkillCheckCustomType type, float warningSoundDelay) {
+bool USkillCheck::IsHexSkillCheck(ADBDPlayer* dbdPlayer) const
+{
+	return false;
 }
 
-bool USkillCheck::IsOffCenterSkillCheck() const {
-    return false;
+bool USkillCheck::IsDisplayed() const
+{
+	return false;
 }
 
-bool USkillCheck::IsHexSkillCheck(ADBDPlayer* dbdPlayer) const {
-    return false;
+bool USkillCheck::CanSkillCheckTypeGrantScore(ESkillCheckCustomType type)
+{
+	return false;
 }
 
-bool USkillCheck::IsDisplayed() const {
-    return false;
+void USkillCheck::Authority_OnSkillCheckTimeout()
+{
+
 }
 
-float USkillCheck::GetStartDelayInSeconds() const {
-    return 0.0f;
+USkillCheck::USkillCheck()
+{
+	this->_owner = NULL;
+	this->_currentInteraction = NULL;
+	this->_customSkillCheckTypesAffectedByWarningModifiers = TArray<ESkillCheckCustomType>();
 }
-
-bool USkillCheck::CanSkillCheckTypeGrantScore(ESkillCheckCustomType type) {
-    return false;
-}
-
-void USkillCheck::Authority_OnSkillCheckTimeout() {
-}
-
-USkillCheck::USkillCheck() {
-    this->_owner = NULL;
-    this->_currentInteraction = NULL;
-}
-

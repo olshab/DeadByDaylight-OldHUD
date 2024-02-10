@@ -1,0 +1,22 @@
+{
+  "FileVersion": "3",
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "BhvrCheatMenu",
+  "Description": "Platform agnostic standalone cheat menu for Behaviour Interactive games",
+  "Category": "Other",
+  "CreatedBy": "Behaviour Interactive",
+  "CreatedByURL": "http://bhvr.com",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": false,
+  "CanContainContent": true,
+  "Installed": true,
+  "Plugins": [
+    {
+      "Name": "BhvrSlateWidgets",
+      "Enabled": true
+    }
+  ]
+}

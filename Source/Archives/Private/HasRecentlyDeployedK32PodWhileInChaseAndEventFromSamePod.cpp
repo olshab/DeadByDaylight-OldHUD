@@ -1,0 +1,6 @@
+#include "HasRecentlyDeployedK32PodWhileInChaseAndEventFromSamePod.h"
+
+UHasRecentlyDeployedK32PodWhileInChaseAndEventFromSamePod::UHasRecentlyDeployedK32PodWhileInChaseAndEventFromSamePod()
+{
+
+}

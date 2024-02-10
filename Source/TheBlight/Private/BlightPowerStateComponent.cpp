@@ -1,80 +1,101 @@
 #include "BlightPowerStateComponent.h"
+#include "EWallGrabState.h"
 #include "Net/UnrealNetwork.h"
 
 class UTimerObject;
 class UBlightPowerState;
 
-void UBlightPowerStateComponent::Server_SetWallGrabState_Implementation(const EWallGrabState newState) {
-}
-bool UBlightPowerStateComponent::Server_SetWallGrabState_Validate(const EWallGrabState newState) {
-    return true;
+void UBlightPowerStateComponent::Server_SetWallGrabState_Implementation(const EWallGrabState newState)
+{
+
 }
 
-void UBlightPowerStateComponent::ResetDashTokens() {
+bool UBlightPowerStateComponent::Server_SetWallGrabState_Validate(const EWallGrabState newState)
+{
+	return true;
 }
 
-void UBlightPowerStateComponent::OnRep_StateTimer() {
+void UBlightPowerStateComponent::OnRep_StateTimer()
+{
+
 }
 
-void UBlightPowerStateComponent::OnRep_DashTokens() {
+void UBlightPowerStateComponent::OnRep_DashTokens() const
+{
+
 }
 
-void UBlightPowerStateComponent::OnLevelReadyToPlay() {
+void UBlightPowerStateComponent::OnLevelReadyToPlay()
+{
+
 }
 
-void UBlightPowerStateComponent::Multicast_SetWallGrabState_Implementation(const EWallGrabState newState) {
-}
-bool UBlightPowerStateComponent::Multicast_SetWallGrabState_Validate(const EWallGrabState newState) {
-    return true;
+void UBlightPowerStateComponent::Multicast_SetWallGrabState_Implementation(const EWallGrabState newState)
+{
+
 }
 
-float UBlightPowerStateComponent::GetStateTimeRemaining() const {
-    return 0.0f;
+bool UBlightPowerStateComponent::Multicast_SetWallGrabState_Validate(const EWallGrabState newState)
+{
+	return true;
 }
 
-UTimerObject* UBlightPowerStateComponent::GetStateTimer() const {
-    return NULL;
+float UBlightPowerStateComponent::GetStateTimeRemaining() const
+{
+	return 0.0f;
 }
 
-float UBlightPowerStateComponent::GetStateTimeElapsed() const {
-    return 0.0f;
+UTimerObject* UBlightPowerStateComponent::GetStateTimer() const
+{
+	return NULL;
 }
 
-UBlightPowerState* UBlightPowerStateComponent::GetPowerStateByEnum(const EWallGrabState stateEnum) const {
-    return NULL;
+float UBlightPowerStateComponent::GetStateTimeElapsed() const
+{
+	return 0.0f;
 }
 
-EWallGrabState UBlightPowerStateComponent::GetPowerState() const {
-    return EWallGrabState::None;
+UBlightPowerState* UBlightPowerStateComponent::GetPowerStateByEnum(const EWallGrabState stateEnum) const
+{
+	return NULL;
 }
 
-float UBlightPowerStateComponent::GetLookAngleDegrees() const {
-    return 0.0f;
+EWallGrabState UBlightPowerStateComponent::GetPowerState() const
+{
+	return EWallGrabState::None;
 }
 
-uint8 UBlightPowerStateComponent::GetDashTokensRemaining() const {
-    return 0;
+float UBlightPowerStateComponent::GetLookAngleDegrees() const
+{
+	return 0.0f;
 }
 
-UBlightPowerState* UBlightPowerStateComponent::GetCurrentPowerState() const {
-    return NULL;
+UBlightPowerState* UBlightPowerStateComponent::GetCurrentPowerState() const
+{
+	return NULL;
 }
 
-bool UBlightPowerStateComponent::CanDash() const {
-    return false;
+bool UBlightPowerStateComponent::CanDash() const
+{
+	return false;
 }
 
-void UBlightPowerStateComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(UBlightPowerStateComponent, _stateTimer);
-    DOREPLIFETIME(UBlightPowerStateComponent, _dashTokens);
+void UBlightPowerStateComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(UBlightPowerStateComponent, _stateTimer);
+	DOREPLIFETIME(UBlightPowerStateComponent, _dashTokens);
+	DOREPLIFETIME(UBlightPowerStateComponent, _consecutiveTokenCount);
 }
 
-UBlightPowerStateComponent::UBlightPowerStateComponent() {
-    this->_powerInteractionDefinition = NULL;
-    this->_stateTimer = NULL;
-    this->_currentBlightPowerState = NULL;
-    this->_dashTokens = 0;
+UBlightPowerStateComponent::UBlightPowerStateComponent()
+{
+	this->_blightPowerStateClasses = TArray<TSubclassOf<UBlightPowerState>>();
+	this->_powerInteractionDefinition = NULL;
+	this->_stateTimer = NULL;
+	this->_blightPowerStates = TArray<UBlightPowerState*>();
+	this->_currentBlightPowerState = NULL;
+	this->_dashTokens = 0;
+	this->_consecutiveTokenCount = 0;
 }
-

@@ -1,5 +1,7 @@
 #include "LoudNoiseEventSystem.h"
 
-ULoudNoiseEventSystem::ULoudNoiseEventSystem() {
+ULoudNoiseEventSystem::ULoudNoiseEventSystem()
+{
+	this->_requiredPlayerStateTags = TArray<FGameplayTag>();
+	this->_preventativePlayerStateTags = TArray<FGameplayTag>();
 }
-

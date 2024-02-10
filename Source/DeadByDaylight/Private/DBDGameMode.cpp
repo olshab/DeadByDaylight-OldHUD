@@ -1,36 +1,42 @@
 #include "DBDGameMode.h"
+#include "NavmeshGeneratorComponent.h"
 
-class APlayerState;
+void ADBDGameMode::SetPlayerCount(int32 playerAmount)
+{
 
-void ADBDGameMode::SetEscapeOpened(bool val) {
 }
 
-void ADBDGameMode::RegisterOnPlayerStateChanged(APlayerState* playerState) {
+void ADBDGameMode::LevelLoaded(const FString& levelName)
+{
+
 }
 
-void ADBDGameMode::OnPlayerGameStateChanged(EGameState playerGameState) {
+bool ADBDGameMode::IsEscapeOpen() const
+{
+	return false;
 }
 
-void ADBDGameMode::LevelLoaded(const FString& levelName) {
+void ADBDGameMode::InitializeEscapeRequirements()
+{
+
 }
 
-bool ADBDGameMode::IsEscapeOpen() const {
-    return false;
+void ADBDGameMode::HostGame()
+{
+
 }
 
-void ADBDGameMode::HostGame() {
+bool ADBDGameMode::AreLoadoutsCreated() const
+{
+	return false;
 }
 
-void ADBDGameMode::DBD_BlockCamperEscape(bool shouldBlock) {
+ADBDGameMode::ADBDGameMode()
+{
+	this->_killerPlayerControllerClass = NULL;
+	this->_survivorPlayerControllerClass = NULL;
+	this->_initialPlayerStarts = TArray<APlayerStart*>();
+	this->KillerCreationPositionOrder = 0;
+	this->_gateBlockedStatus = NULL;
+	this->_navmeshGeneratorComponent = CreateDefaultSubobject<UNavmeshGeneratorComponent>(TEXT("NavmeshGeneratorComponent"));
 }
-
-bool ADBDGameMode::AreLoadoutsCreated() const {
-    return false;
-}
-
-ADBDGameMode::ADBDGameMode() {
-    this->_killerPlayerControllerClass = NULL;
-    this->_survivorPlayerControllerClass = NULL;
-    this->KillerCreationPositionOrder = 0;
-}
-

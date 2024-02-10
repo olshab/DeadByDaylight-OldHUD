@@ -1,7 +1,7 @@
 #include "HarpoonProp.h"
-#include "Components/SkeletalMeshComponent.h"
+#include "DBDSkeletalMeshComponentBudgeted.h"
 
-AHarpoonProp::AHarpoonProp() {
-    this->_skeletalMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Skeletal Mesh"));
+AHarpoonProp::AHarpoonProp()
+{
+	this->_skeletalMeshComponent = CreateDefaultSubobject<UDBDSkeletalMeshComponentBudgeted>(TEXT("SkeletalMeshComponent"));
 }
-

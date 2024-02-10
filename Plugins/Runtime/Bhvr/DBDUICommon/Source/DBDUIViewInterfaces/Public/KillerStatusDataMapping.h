@@ -1,18 +1,31 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "DBDTableRowBase.h"
+#include "GameplayTagContainer.h"
+#include "Templates/SubclassOf.h"
 #include "KillerStatusDataMapping.generated.h"
 
-USTRUCT()
-struct DBDUIVIEWINTERFACES_API FKillerStatusDataMapping : public FDBDTableRowBase {
-    GENERATED_BODY()
+class UKillerStatusData;
+class UObject;
+
+USTRUCT(BlueprintType)
+struct FKillerStatusDataMapping: public FDBDTableRowBase
+{
+	GENERATED_BODY()
+
 public:
-    UPROPERTY(EditAnywhere)
-    int32 CharacterId;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FGameplayTag Killer;
 
-    UPROPERTY(EditAnywhere)
-    FText Description;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UKillerStatusData> ViewDataClass;
 
-    FKillerStatusDataMapping();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UObject> WidgetClass;
+
+public:
+	DBDUIVIEWINTERFACES_API FKillerStatusDataMapping();
 };
 
+FORCEINLINE uint32 GetTypeHash(const FKillerStatusDataMapping) { return 0; }

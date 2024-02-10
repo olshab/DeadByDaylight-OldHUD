@@ -1,33 +1,40 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "Perk.h"
+#include "Templates/SubclassOf.h"
 #include "Deception.generated.h"
 
 class UStatusEffect;
 class UManualIconStrategy;
 
 UCLASS(meta=(BlueprintSpawnableComponent))
-class UDeception : public UPerk {
-    GENERATED_BODY()
-public:
+class UDeception : public UPerk
+{
+	GENERATED_BODY()
+
 private:
-    UPROPERTY(EditDefaultsOnly)
-    float _noScratchMarksDuration[3];
-    
-    UPROPERTY(EditDefaultsOnly)
-    float _perkCooldownDuration[3];
-    
-    UPROPERTY(Export, Transient)
-    UStatusEffect* _statusEffect;
-    
-    UPROPERTY(Transient)
-    UManualIconStrategy* _iconStrategy;
-    
-public:
-    UDeception();
+	UPROPERTY(EditDefaultsOnly)
+	float _noScratchMarksDuration;
+
+	UPROPERTY(EditDefaultsOnly)
+	float _perkCooldownDuration;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UStatusEffect> _deceptionStatusEffectClass;
+
+	UPROPERTY(Transient, Export)
+	UStatusEffect* _statusEffect;
+
+	UPROPERTY(Transient)
+	UManualIconStrategy* _iconStrategy;
+
 protected:
-    UFUNCTION(BlueprintCosmetic, BlueprintImplementableEvent)
-    void OnOwningPlayerFakedEnteringLockerCosmetic();
-    
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCosmetic)
+	void OnOwningPlayerFakedEnteringLockerCosmetic();
+
+public:
+	UDeception();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UDeception) { return 0; }

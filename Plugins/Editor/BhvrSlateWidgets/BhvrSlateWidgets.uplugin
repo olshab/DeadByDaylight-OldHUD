@@ -1,0 +1,22 @@
+{
+  "FileVersion": "3",
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "BhvrSlateWidgets",
+  "Description": "A library of custom Slate widgets",
+  "Category": "Widgets",
+  "CreatedBy": "Behaviour Interactive",
+  "CreatedByURL": "http://www.bhvr.com/",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": false,
+  "CanContainContent": true,
+  "Installed": false,
+  "Plugins": [
+    {
+      "Name": "EditorScriptingUtilities",
+      "Enabled": true
+    }
+  ]
+}

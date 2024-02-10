@@ -1,22 +1,39 @@
 #include "CinematicManager.h"
+#include "Cinematic.h"
+#include "BackendCinematicContainer.h"
 
-void UCinematicManager::PlaySingle(const FCinematic& cinematic) {
+void UCinematicManager::SetVideoThumbnailProperties(FCinematic& cinematic)
+{
+
 }
 
-void UCinematicManager::PlayMultiple(const TArray<FCinematic>& cinematics) {
+void UCinematicManager::PlaySingle(const FCinematic& cinematic)
+{
+
 }
 
-bool UCinematicManager::HasCinematicToPlay() const {
-    return false;
+void UCinematicManager::PlayMultiple(const TArray<FCinematic>& cinematics)
+{
+
 }
 
-FCinematic UCinematicManager::GetNextCinematicToPlay() {
-    return FCinematic{};
+bool UCinematicManager::HasCinematicToPlay() const
+{
+	return false;
 }
 
-void UCinematicManager::CancelAllCinematicToPlay() {
+FCinematic UCinematicManager::GetNextCinematicToPlay()
+{
+	return FCinematic{};
 }
 
-UCinematicManager::UCinematicManager() {
+void UCinematicManager::CancelAllCinematicToPlay()
+{
+
 }
 
+UCinematicManager::UCinematicManager()
+{
+	this->_cinematicQueue = TArray<FCinematic>();
+	this->_backendContainer = CreateDefaultSubobject<UBackendCinematicContainer>(TEXT("BackendContainer"));
+}

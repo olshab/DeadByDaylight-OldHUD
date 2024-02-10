@@ -1,0 +1,26 @@
+{
+  "FileVersion": "3",
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "Bhvr Collision Channels Tools",
+  "Description": "Toolset for collision channels.\nAdd ways to understand how a channel is used, as well as various tools to visualize collisions behaviour in editor.",
+  "Category": "Editor",
+  "CreatedBy": "Behaviour Interactive",
+  "CreatedByURL": "http://www.bhvr.com/",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": true,
+  "CanContainContent": true,
+  "Installed": false,
+  "Plugins": [
+    {
+      "Name": "EditorScriptingUtilities",
+      "Enabled": true
+    },
+    {
+      "Name": "BhvrEditorUtilities",
+      "Enabled": true
+    }
+  ]
+}

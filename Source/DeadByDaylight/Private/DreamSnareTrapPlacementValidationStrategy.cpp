@@ -1,8 +1,8 @@
 #include "DreamSnareTrapPlacementValidationStrategy.h"
 
-UDreamSnareTrapPlacementValidationStrategy::UDreamSnareTrapPlacementValidationStrategy() {
-    this->NumberOfGroundTest = 8.00f;
-    this->TrapRadius = 90.00f;
-    this->MaxElevationDifferentialOnTrapEdge = 10.00f;
+UDreamSnareTrapPlacementValidationStrategy::UDreamSnareTrapPlacementValidationStrategy()
+{
+	this->_numberOfGroundTest = 8.000000;
+	this->_trapRadius = 90.000000;
+	this->_maxElevationDifferentialOnTrapEdge = 10.000000;
 }
-

@@ -2,10 +2,13 @@
 
 class AConjoinedTwin;
 
-void UTwinBaseAddon::Authority_OnTwinSet(AConjoinedTwin* twin) {
+void UTwinBaseAddon::Authority_OnTwinSet(AConjoinedTwin* twin)
+{
+
 }
 
-UTwinBaseAddon::UTwinBaseAddon() {
-    this->_customParam = 0.00f;
+UTwinBaseAddon::UTwinBaseAddon()
+{
+	this->_statusEffectClass = NULL;
+	this->_customParam = 0.000000;
 }
-

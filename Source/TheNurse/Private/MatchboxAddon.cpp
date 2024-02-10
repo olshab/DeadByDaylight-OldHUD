@@ -1,6 +1,7 @@
 #include "MatchboxAddon.h"
 
-UMatchboxAddon::UMatchboxAddon() {
-    this->_speedModifier = 35.00f;
+UMatchboxAddon::UMatchboxAddon()
+{
+	this->_speedModifier = 35.000000;
+	this->_speedOverrideEffectClass = NULL;
 }
-

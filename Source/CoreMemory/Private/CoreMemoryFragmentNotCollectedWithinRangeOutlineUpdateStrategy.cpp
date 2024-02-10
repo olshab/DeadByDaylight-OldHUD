@@ -1,0 +1,6 @@
+#include "CoreMemoryFragmentNotCollectedWithinRangeOutlineUpdateStrategy.h"
+
+UCoreMemoryFragmentNotCollectedWithinRangeOutlineUpdateStrategy::UCoreMemoryFragmentNotCollectedWithinRangeOutlineUpdateStrategy()
+{
+	this->_auraDisplayedRange = 16.000000;
+}

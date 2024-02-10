@@ -1,4 +1,5 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "HitValidationReport.h"
@@ -7,22 +8,20 @@
 class UHitValidationConfigsComponent;
 
 UCLASS(meta=(BlueprintSpawnableComponent))
-class DEADBYDAYLIGHT_API UHitValidatorComponent : public UActorComponent {
-    GENERATED_BODY()
-public:
-protected:
-    UPROPERTY()
-    float _maximumSquareDistance;
-    
+class DEADBYDAYLIGHT_API UHitValidatorComponent : public UActorComponent
+{
+	GENERATED_BODY()
+
 private:
-    UPROPERTY(Export, Transient)
-    TWeakObjectPtr<UHitValidationConfigsComponent> _hitValidationConfigComponent;
-    
-public:
-    UHitValidatorComponent();
+	UPROPERTY(Transient, Export)
+	TWeakObjectPtr<UHitValidationConfigsComponent> _hitValidationConfigComponent;
+
 private:
-    UFUNCTION(NetMulticast, Reliable)
-    void Multicast_DrawDebugHit(FHitValidationReport report);
-    
+	UFUNCTION(NetMulticast, Reliable)
+	void Multicast_DrawDebugHit(FHitValidationReport report);
+
+public:
+	UHitValidatorComponent();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UHitValidatorComponent) { return 0; }

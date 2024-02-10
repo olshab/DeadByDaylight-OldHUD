@@ -1,24 +1,28 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "ChargeableInteractionDefinition.h"
+#include "BaseTotemInteraction.h"
 #include "DBDTunableRowHandle.h"
 #include "BlessTotem.generated.h"
 
-class ATotem;
-
 UCLASS(EditInlineNew, meta=(BlueprintSpawnableComponent))
-class UBlessTotem : public UChargeableInteractionDefinition {
-    GENERATED_BODY()
-public:
+class UBlessTotem : public UBaseTotemInteraction
+{
+	GENERATED_BODY()
+
 private:
-    UPROPERTY(EditDefaultsOnly, EditFixedSize)
-    FDBDTunableRowHandle _blessHexTotemSpeedPenalty;
-    
+	UPROPERTY(EditDefaultsOnly, EditFixedSize)
+	FDBDTunableRowHandle _blessHexTotemSpeedPenalty;
+
+protected:
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCosmetic)
+	void Cosmetic_OnInteractionStarted();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCosmetic)
+	void Cosmetic_OnInteractionFinished();
+
 public:
-    UBlessTotem();
-private:
-    UFUNCTION(BlueprintPure)
-    ATotem* GetTotem() const;
-    
+	UBlessTotem();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UBlessTotem) { return 0; }

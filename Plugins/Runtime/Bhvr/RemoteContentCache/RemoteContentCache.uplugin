@@ -1,0 +1,23 @@
+{
+  "FileVersion": "1",
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "BHVR Remote Content Cache",
+  "Description": "Plugin for caching remote content locally",
+  "Category": "BHVR Modules",
+  "CreatedBy": "Behaviour Interactive",
+  "CreatedByURL": "http://www.bhvr.com/",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": true,
+  "CanContainContent": false,
+  "Installed": true,
+  "Modules": [
+    {
+      "Name": "RemoteContentCache",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ]
+}

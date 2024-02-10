@@ -1,37 +1,46 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "DBDTableRowBaseWithId.h"
 #include "EAdditiveBehaviour.h"
 #include "EContextualType.h"
 #include "EOwnershipBehaviour.h"
 #include "EStackingBehaviours.h"
+#include "SpecialBehaviourSpawnableComponent.h"
 #include "ArchiveQuestSpecialBehaviour.generated.h"
 
 USTRUCT(BlueprintType)
-struct FArchiveQuestSpecialBehaviour : public FDBDTableRowBaseWithId {
-    GENERATED_BODY()
+struct FArchiveQuestSpecialBehaviour: public FDBDTableRowBaseWithId
+{
+	GENERATED_BODY()
+
 public:
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    FText Description;
-    
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    EContextualType Type;
-    
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    FName SpawnObjectId;
-    
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    EAdditiveBehaviour AdditiveBehaviour;
-    
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    EStackingBehaviours StackableBehaviour;
-    
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    EOwnershipBehaviour OwnershipBehaviour;
-    
-    UPROPERTY(BlueprintReadOnly, EditAnywhere)
-    int32 SpawnQuantity;
-    
-    DEADBYDAYLIGHT_API FArchiveQuestSpecialBehaviour();
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FText Description;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	EContextualType Type;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FName SpawnObjectId;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	EAdditiveBehaviour AdditiveBehaviour;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	EStackingBehaviours StackableBehaviour;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	EOwnershipBehaviour OwnershipBehaviour;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	int32 SpawnQuantity;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TArray<FSpecialBehaviourSpawnableComponent> SpawnableComponents;
+
+public:
+	DEADBYDAYLIGHT_API FArchiveQuestSpecialBehaviour();
 };
 
+FORCEINLINE uint32 GetTypeHash(const FArchiveQuestSpecialBehaviour) { return 0; }

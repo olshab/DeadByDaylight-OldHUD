@@ -1,5 +1,6 @@
 #include "Fixated.h"
 
-UFixated::UFixated() {
+UFixated::UFixated()
+{
+	this->_fixatedStatusEffect = NULL;
 }
-

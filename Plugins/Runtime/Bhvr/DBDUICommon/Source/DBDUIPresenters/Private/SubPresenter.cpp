@@ -1,5 +1,16 @@
 #include "SubPresenter.h"
 
-USubPresenter::USubPresenter() {
+void USubPresenter::OnPresenterStopAsyncOperation()
+{
+
 }
 
+void USubPresenter::OnPresenterStartAsyncOperation()
+{
+
+}
+
+USubPresenter::USubPresenter()
+{
+
+}

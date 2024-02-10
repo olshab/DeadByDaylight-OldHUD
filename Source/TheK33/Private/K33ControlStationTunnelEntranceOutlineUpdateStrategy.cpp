@@ -1,0 +1,6 @@
+#include "K33ControlStationTunnelEntranceOutlineUpdateStrategy.h"
+
+UK33ControlStationTunnelEntranceOutlineUpdateStrategy::UK33ControlStationTunnelEntranceOutlineUpdateStrategy()
+{
+
+}

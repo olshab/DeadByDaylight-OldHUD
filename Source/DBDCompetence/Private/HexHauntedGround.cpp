@@ -1,8 +1,12 @@
 #include "HexHauntedGround.h"
 
-UHexHauntedGround::UHexHauntedGround() {
-    this->_exposedStatusEffectDuration[0] = 0.00f;
-    this->_exposedStatusEffectDuration[1] = 0.00f;
-    this->_exposedStatusEffectDuration[2] = 0.00f;
+float UHexHauntedGround::GetExposedDurationAtLevel() const
+{
+	return 0.0f;
 }
 
+UHexHauntedGround::UHexHauntedGround()
+{
+	this->_exposedStatusEffectDuration = 0.000000;
+	this->_exposedStatusEffectClass = NULL;
+}

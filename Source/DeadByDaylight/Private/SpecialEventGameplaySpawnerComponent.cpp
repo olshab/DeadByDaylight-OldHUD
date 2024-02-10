@@ -1,5 +1,6 @@
 #include "SpecialEventGameplaySpawnerComponent.h"
 
-USpecialEventGameplaySpawnerComponent::USpecialEventGameplaySpawnerComponent() {
-}
+USpecialEventGameplaySpawnerComponent::USpecialEventGameplaySpawnerComponent()
+{
 
+}

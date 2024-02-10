@@ -1,0 +1,22 @@
+{
+  "FileVersion": "3",
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "DBDCharacterCreator",
+  "Description": "Character Creator plugin for DBD",
+  "Category": "Bhvr DLC Generation",
+  "CreatedBy": "Bhvr",
+  "CreatedByURL": "https://www.bhvr.com",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": false,
+  "CanContainContent": true,
+  "Installed": false,
+  "Plugins": [
+    {
+      "Name": "EditorScriptingUtilities",
+      "Enabled": true
+    }
+  ]
+}

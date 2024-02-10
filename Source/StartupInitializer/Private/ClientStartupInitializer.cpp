@@ -1,8 +1,11 @@
 #include "ClientStartupInitializer.h"
 
-void UClientStartupInitializer::OnHealthCheckTriggered(bool requestSuccess, int32 providerError, bool datetimeIsSet, const FDateTime& utcTime) {
+void UClientStartupInitializer::OnDynamicContentLoaded(bool success)
+{
+
 }
 
-UClientStartupInitializer::UClientStartupInitializer() {
-}
+UClientStartupInitializer::UClientStartupInitializer()
+{
 
+}

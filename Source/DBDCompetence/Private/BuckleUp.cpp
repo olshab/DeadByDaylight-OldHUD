@@ -1,8 +1,13 @@
 #include "BuckleUp.h"
 
-UBuckleUp::UBuckleUp() {
-    this->_revealDuration[0] = 0.00f;
-    this->_revealDuration[1] = 0.00f;
-    this->_revealDuration[2] = 0.00f;
+float UBuckleUp::GetPerkDurationAtLevel() const
+{
+	return 0.0f;
 }
 
+UBuckleUp::UBuckleUp()
+{
+	this->_perkDuration = 0.000000;
+	this->_revealKillerStatusEffect = NULL;
+	this->_enduranceStatusEffect = NULL;
+}

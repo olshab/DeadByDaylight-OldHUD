@@ -1,0 +1,6 @@
+#include "K32KillerProjectileSpawnChargeableInteractionDefinition.h"
+
+UK32KillerProjectileSpawnChargeableInteractionDefinition::UK32KillerProjectileSpawnChargeableInteractionDefinition()
+{
+
+}

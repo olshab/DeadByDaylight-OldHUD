@@ -1,0 +1,6 @@
+#include "ProximityToSpawnPointTypeIterativeWeightAdjustmentStrategy.h"
+
+UProximityToSpawnPointTypeIterativeWeightAdjustmentStrategy::UProximityToSpawnPointTypeIterativeWeightAdjustmentStrategy()
+{
+	this->_spawnPointType = ETileSpawnPointType::Unspecified;
+}

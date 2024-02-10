@@ -1,6 +1,13 @@
 #include "KillerStatusData.h"
 
-FKillerStatusData::FKillerStatusData() {
-    this->AfflictionLevel = EAfflictionLevel::Off;
+class UKillerStatusData;
+
+bool UKillerStatusData::IsEqual(const UKillerStatusData* other) const
+{
+	return false;
 }
 
+UKillerStatusData::UKillerStatusData()
+{
+
+}

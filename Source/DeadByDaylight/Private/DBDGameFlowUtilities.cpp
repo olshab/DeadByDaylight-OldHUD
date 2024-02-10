@@ -1,13 +1,26 @@
 #include "DBDGameFlowUtilities.h"
+#include "EUIFlowEvent.h"
+#include "EWorldFlowEvent.h"
 
 class UObject;
+class UDBDGameInstance;
 
-void UDBDGameFlowUtilities::TriggerWorldFlowEvent(UObject* worldContextObject, EWorldFlowEvent worldFlowEvent) {
+void UDBDGameFlowUtilities::TriggerWorldFlowEvent(UObject* worldContextObject, EWorldFlowEvent worldFlowEvent)
+{
+
 }
 
-void UDBDGameFlowUtilities::TriggerUIFlowEvent(UObject* worldContextObject, EUIFlowEvent uiFlowEvent) {
+void UDBDGameFlowUtilities::TriggerUIFlowEvent(UObject* worldContextObject, EUIFlowEvent uiFlowEvent)
+{
+
 }
 
-UDBDGameFlowUtilities::UDBDGameFlowUtilities() {
+bool UDBDGameFlowUtilities::IsCurrentlyInGame(const UDBDGameInstance* gameInstance)
+{
+	return false;
 }
 
+UDBDGameFlowUtilities::UDBDGameFlowUtilities()
+{
+
+}

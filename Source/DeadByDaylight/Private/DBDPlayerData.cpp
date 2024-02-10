@@ -1,80 +1,66 @@
 #include "DBDPlayerData.h"
+#include "EInputInteractionType.h"
+#include "UObject/NoExportTypes.h"
 #include "Net/UnrealNetwork.h"
 
-void UDBDPlayerData::SetRenderingFeaturesCompleted() {
+void UDBDPlayerData::Server_SetPlayerReady_Implementation()
+{
+
 }
 
-void UDBDPlayerData::SetLoadoutSpawned() {
+void UDBDPlayerData::Server_SetMapSpecificComponentReady_Implementation()
+{
+
 }
 
-void UDBDPlayerData::SetIntroCompleted() {
+void UDBDPlayerData::Server_SetKillerSpecificComponentReady_Implementation()
+{
+
 }
 
-void UDBDPlayerData::SetCampaignDataSynced() {
+void UDBDPlayerData::Server_SetIntroCompleted_Implementation()
+{
+
 }
 
-void UDBDPlayerData::Server_SetIntroCompleted_Implementation() {
-}
-bool UDBDPlayerData::Server_SetIntroCompleted_Validate() {
-    return true;
+void UDBDPlayerData::Server_RenderingFeaturesCompleted_Implementation()
+{
+
 }
 
-void UDBDPlayerData::Server_RenderingFeaturesCompleted_Implementation() {
-}
-bool UDBDPlayerData::Server_RenderingFeaturesCompleted_Validate() {
-    return true;
+void UDBDPlayerData::Server_NotifyAIPawnSpawned_Implementation()
+{
+
 }
 
-void UDBDPlayerData::Server_LoadoutSpawned_Implementation() {
-}
-bool UDBDPlayerData::Server_LoadoutSpawned_Validate() {
-    return true;
+void UDBDPlayerData::Server_LoadoutSpawned_Implementation()
+{
+
 }
 
-void UDBDPlayerData::Server_CampaignDataSynced_Implementation() {
-}
-bool UDBDPlayerData::Server_CampaignDataSynced_Validate() {
-    return true;
+void UDBDPlayerData::Server_CampaignDataSynced_Implementation()
+{
+
 }
 
-bool UDBDPlayerData::IsLoadoutSpawned() const {
-    return false;
+bool UDBDPlayerData::IsInteractionInputPressed(EInputInteractionType interactionType) const
+{
+	return false;
 }
 
-bool UDBDPlayerData::IsIntroCompleted() {
-    return false;
+FRotator UDBDPlayerData::GetControlRotation() const
+{
+	return FRotator{};
 }
 
-bool UDBDPlayerData::IsCampaignDataSynced() const {
-    return false;
+void UDBDPlayerData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(UDBDPlayerData, _controlRotation);
 }
 
-bool UDBDPlayerData::GetUseInputPressed() const {
-    return false;
-}
+UDBDPlayerData::UDBDPlayerData()
+{
 
-bool UDBDPlayerData::GetLeftRightInputMashed() const {
-    return false;
 }
-
-bool UDBDPlayerData::GetInteractionInputMashed() const {
-    return false;
-}
-
-FRotator UDBDPlayerData::GetControlRotation() const {
-    return FRotator{};
-}
-
-bool UDBDPlayerData::DidRenderingFeaturesComplete() const {
-    return false;
-}
-
-void UDBDPlayerData::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(UDBDPlayerData, _controlRotation);
-}
-
-UDBDPlayerData::UDBDPlayerData() {
-}
-

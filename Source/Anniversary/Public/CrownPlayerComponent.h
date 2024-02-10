@@ -1,31 +1,33 @@
 #pragma once
+
 #include "CoreMinimal.h"
+#include "AnniversaryPlayerComponentInterface.h"
 #include "Components/SceneComponent.h"
+#include "GameplayTagContainer.h"
 #include "TagStateBool.h"
 #include "CrownPlayerComponent.generated.h"
 
 UCLASS(Blueprintable, meta=(BlueprintSpawnableComponent))
-class ANNIVERSARY_API UCrownPlayerComponent : public USceneComponent {
-    GENERATED_BODY()
-public:
+class ANNIVERSARY_API UCrownPlayerComponent : public USceneComponent, public IAnniversaryPlayerComponentInterface
+{
+	GENERATED_BODY()
+
 private:
-    UPROPERTY(Transient, ReplicatedUsing=OnRep_hasInteractedWithCrownPillarThisGame)
-    bool _hasInteractedWithCrownPillarThisGame;
-    
-    UPROPERTY(Transient)
-    FTagStateBool _isCrownEventActive;
-    
-public:
-    UCrownPlayerComponent();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
-private:
-    UFUNCTION()
-    void OnRep_hasInteractedWithCrownPillarThisGame();
-    
+	UPROPERTY(EditAnywhere)
+	FGameplayTagContainer _crownVFXParticleDeactivateTags;
+
+	UPROPERTY(EditDefaultsOnly)
+	FGameplayTagContainer _unhookGameEvents;
+
+	UPROPERTY(Transient)
+	FTagStateBool _isCrownEventActive;
+
 protected:
-    UFUNCTION(BlueprintImplementableEvent)
-    void Cosmetic_OnInteractedWithCrownPillar();
-    
+	UFUNCTION(BlueprintImplementableEvent)
+	void Cosmetic_SetVFXParticlesVisibility(bool isVisible);
+
+public:
+	UCrownPlayerComponent();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UCrownPlayerComponent) { return 0; }

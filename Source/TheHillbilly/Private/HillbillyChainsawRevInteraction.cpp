@@ -1,5 +1,13 @@
 #include "HillbillyChainsawRevInteraction.h"
 
-UHillbillyChainsawRevInteraction::UHillbillyChainsawRevInteraction() {
+class UChargeableComponent;
+
+void UHillbillyChainsawRevInteraction::OnChargeablePercentChange(UChargeableComponent* chargeableComponent, float totalPercentComplete)
+{
+
 }
 
+UHillbillyChainsawRevInteraction::UHillbillyChainsawRevInteraction()
+{
+
+}

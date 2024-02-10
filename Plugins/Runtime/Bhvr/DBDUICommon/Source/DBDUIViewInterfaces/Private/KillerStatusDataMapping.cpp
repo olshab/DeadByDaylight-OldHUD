@@ -1,6 +1,8 @@
 #include "KillerStatusDataMapping.h"
 
-FKillerStatusDataMapping::FKillerStatusDataMapping() {
-    this->CharacterId = 0;
+FKillerStatusDataMapping::FKillerStatusDataMapping()
+{
+	this->Killer = FGameplayTag{};
+	this->ViewDataClass = NULL;
+	this->WidgetClass = NULL;
 }
-

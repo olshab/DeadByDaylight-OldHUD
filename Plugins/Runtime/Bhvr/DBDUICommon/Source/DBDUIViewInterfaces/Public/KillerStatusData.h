@@ -1,15 +1,22 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "EAfflictionLevel.h"
+#include "UObject/NoExportTypes.h"
 #include "KillerStatusData.generated.h"
 
-USTRUCT(BlueprintType)
-struct FKillerStatusData {
-    GENERATED_BODY()
+class UKillerStatusData;
+
+UCLASS(BlueprintType, Abstract)
+class DBDUIVIEWINTERFACES_API UKillerStatusData : public UObject
+{
+	GENERATED_BODY()
+
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    EAfflictionLevel AfflictionLevel;
-    
-    DBDUIVIEWINTERFACES_API FKillerStatusData();
+	UFUNCTION(BlueprintPure)
+	bool IsEqual(const UKillerStatusData* other) const;
+
+public:
+	UKillerStatusData();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UKillerStatusData) { return 0; }

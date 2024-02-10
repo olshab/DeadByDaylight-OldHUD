@@ -1,16 +1,29 @@
 #include "AnimationMontageSlave.h"
+#include "AnimationMontageDescriptor.h"
 
 class UMontagePlayer;
 
-void UAnimationMontageSlave::SetLeader(UMontagePlayer* leader) {
+void UAnimationMontageSlave::SetMontagePlayer(UMontagePlayer* montagePlayer)
+{
+
 }
 
-void UAnimationMontageSlave::OnMontageStopped(const FAnimationMontageDescriptor id) {
+void UAnimationMontageSlave::SetLeader(UMontagePlayer* leader)
+{
+
 }
 
-void UAnimationMontageSlave::OnMontageStarted(const FAnimationMontageDescriptor id, const float rate) {
+void UAnimationMontageSlave::OnMontageStopped(const FAnimationMontageDescriptor id)
+{
+
 }
 
-UAnimationMontageSlave::UAnimationMontageSlave() {
+void UAnimationMontageSlave::OnMontageStarted(const FAnimationMontageDescriptor id, const float rate)
+{
+
 }
 
+UAnimationMontageSlave::UAnimationMontageSlave()
+{
+
+}

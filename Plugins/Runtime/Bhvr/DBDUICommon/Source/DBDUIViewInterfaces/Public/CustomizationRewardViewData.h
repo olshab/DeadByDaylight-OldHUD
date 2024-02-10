@@ -1,37 +1,70 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "RewardViewData.h"
-#include "EItemRarity.h"
+#include "PriceTagViewData.h"
 #include "CustomizationTooltipViewData.h"
+#include "UObject/NoExportTypes.h"
+#include "EItemRarity.h"
+#include "ECustomizationCategory.h"
 #include "CustomizationRewardViewData.generated.h"
 
-class UTexture2D;
-
 USTRUCT(BlueprintType)
-struct DBDUIVIEWINTERFACES_API FCustomizationRewardViewData : public FRewardViewData {
-    GENERATED_BODY()
+struct FCustomizationRewardViewData: public FRewardViewData
+{
+	GENERATED_BODY()
+
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
-    UTexture2D* IconTexture;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
-    EItemRarity Rarity;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
-    bool IsOwned;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
-    bool IsEquipped;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
-    bool IsUnbreakable;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
-    FCustomizationTooltipViewData TooltipData;
-    
-    UPROPERTY(BlueprintReadOnly, Transient)
-    bool IsEnabled;
-    
-    FCustomizationRewardViewData();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	FName CustomizationId;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	FName OutfitId;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	FDateTime ReleaseDate;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	EItemRarity Rarity;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	bool IsOwned;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	bool IsBuyable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	bool IsEquipped;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	bool IsUnbreakable;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	bool IsEventItem;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	FCustomizationTooltipViewData TooltipData;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	ECustomizationCategory CustomizationCategory;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	int32 AssociatedCharacter;
+
+	UPROPERTY(BlueprintReadOnly, Transient)
+	bool IsEnabled;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	bool GrantsMilestonePointOnUnlock;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	TArray<FPriceTagViewData> PriceTagData;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	FString InclusionVersion;
+
+public:
+	DBDUIVIEWINTERFACES_API FCustomizationRewardViewData();
 };
 
+FORCEINLINE uint32 GetTypeHash(const FCustomizationRewardViewData) { return 0; }

@@ -1,5 +1,11 @@
 #include "SlasherOutlineUpdateStrategy.h"
 
-USlasherOutlineUpdateStrategy::USlasherOutlineUpdateStrategy() {
+void USlasherOutlineUpdateStrategy::OnLevelReadyToPlay()
+{
+
 }
 
+USlasherOutlineUpdateStrategy::USlasherOutlineUpdateStrategy()
+{
+
+}

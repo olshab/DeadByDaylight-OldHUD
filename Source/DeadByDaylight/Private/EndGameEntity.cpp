@@ -1,7 +1,7 @@
 #include "EndGameEntity.h"
-#include "Components/SkeletalMeshComponent.h"
+#include "DBDSkeletalMeshComponentBudgeted.h"
 
-AEndGameEntity::AEndGameEntity() {
-    this->_skeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh"));
+AEndGameEntity::AEndGameEntity()
+{
+	this->_skeletalMeshComponent = CreateDefaultSubobject<UDBDSkeletalMeshComponentBudgeted>(TEXT("Mesh"));
 }
-

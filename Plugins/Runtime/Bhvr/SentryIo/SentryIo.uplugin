@@ -1,24 +1,34 @@
 {
-	"FileVersion": 3,
-	"Version": 1,
-	"VersionName": "1.0",
-	"FriendlyName": "SentryIo",
-	"Description": "Sentry Io Integration",
-	"Category": "Other",
-	"CreatedBy": "Behaviour Interactive Inc.",
-	"CreatedByURL": "",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
-	"CanContainContent": true,
-	"IsBetaVersion": false,
-	"IsExperimentalVersion": false,
-	"Installed": false,
-	"Modules": [
-		{
-			"Name": "SentryIo",
-			"Type": "Runtime",
-			"LoadingPhase": "PreDefault"
-		}
-	]
+  "FileVersion": "3",
+  "Version": 1,
+  "VersionName": "1.0",
+  "FriendlyName": "SentryIo",
+  "Description": "Sentry Io Integration",
+  "Category": "Other",
+  "CreatedBy": "Behaviour Interactive Inc.",
+  "CreatedByURL": "",
+  "DocsURL": "",
+  "MarketplaceURL": "",
+  "SupportURL": "",
+  "EnabledByDefault": false,
+  "CanContainContent": true,
+  "Installed": false,
+  "Modules": [
+    {
+      "Name": "SentryIo",
+      "Type": "Runtime",
+      "LoadingPhase": "PreDefault"
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "Sentry",
+      "Enabled": true,
+      "WhitelistPlatforms": [
+        "Win64",
+        "Linux",
+        "LinuxAArch64"
+      ]
+    }
+  ]
 }

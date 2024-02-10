@@ -1,99 +1,147 @@
 #include "Locker.h"
-#include "Net/UnrealNetwork.h"
-#include "Templates/SubclassOf.h"
-#include "AnimationMontageSlave.h"
+#include "UObject/NoExportTypes.h"
+#include "Perception/AIPerceptionStimuliSourceComponent.h"
+#include "Engine/EngineTypes.h"
 #include "MontagePlayer.h"
+#include "ECamperDamageState.h"
+#include "Net/UnrealNetwork.h"
+#include "AnimationMontageSlave.h"
 
-class ACamperPlayer;
-class AActor;
-class UInteractionDefinition;
-class ADBDPlayer;
-class UPrimitiveComponent;
 class UInteractor;
+class ACamperPlayer;
+class UPrimitiveComponent;
+class ADBDPlayer;
+class AActor;
+class USkeletalMeshComponent;
+class UInteractionDefinition;
 
+void ALocker::SetSurvivorInLocker(ACamperPlayer* survivor)
+{
 
-void ALocker::SpawnKillerReloadActor(TSubclassOf<AActor> actorClass) {
 }
 
-void ALocker::SetupKillerSpecificInteraction(UInteractionDefinition* interaction) {
+void ALocker::SetPlayerOpeningLocker(ADBDPlayer* player)
+{
+
 }
 
-void ALocker::SetSurvivorInLocker(ACamperPlayer* survivorInLocker) {
+void ALocker::SetPlayerInLockerVisibility(const bool isVisible) const
+{
+
 }
 
-void ALocker::SetPlayerOpeningLocker(ADBDPlayer* player) {
+void ALocker::OnSurvivorHealthChanged(ECamperDamageState before, ECamperDamageState after)
+{
+
 }
 
-void ALocker::OnSurvivorHealthChanged(ECamperDamageState before, ECamperDamageState after) {
+void ALocker::OnSurvivorEndPlay(AActor* actor, TEnumAsByte<EEndPlayReason::Type> endPlayReason)
+{
+
 }
 
-void ALocker::OnSurvivorEndPlay(AActor* actor, TEnumAsByte<EEndPlayReason::Type> endPlayReason) {
+void ALocker::OnRep_PreventAllInteractions()
+{
+
 }
 
-void ALocker::OnRep_PreventAllInteractions() {
+void ALocker::Multicast_EjectSurvivor_Implementation()
+{
+
 }
 
-void ALocker::Multicast_EjectSurvivor_Implementation() {
-}
-bool ALocker::Multicast_EjectSurvivor_Validate() {
-    return true;
-}
-
-bool ALocker::IsOccupied() const {
-    return false;
+bool ALocker::Multicast_EjectSurvivor_Validate()
+{
+	return true;
 }
 
-bool ALocker::IsFacingLocker(const ADBDPlayer* player, float toleranceDegreeAngle) const {
-    return false;
+bool ALocker::IsOccupied() const
+{
+	return false;
 }
 
-ACamperPlayer* ALocker::GetSurvivorInLocker() const {
-    return NULL;
+bool ALocker::IsFacingLocker(const ADBDPlayer* player, float toleranceDegreeAngle) const
+{
+	return false;
 }
 
-UPrimitiveComponent* ALocker::GetStunZone_Implementation() const {
-    return NULL;
+ACamperPlayer* ALocker::GetSurvivorInLocker() const
+{
+	return NULL;
 }
 
-AActor* ALocker::GetKillerInteractionActor() const {
-    return NULL;
+UPrimitiveComponent* ALocker::GetStunZone_Implementation() const
+{
+	return NULL;
 }
 
-UInteractor* ALocker::GetInteractor() const {
-    return NULL;
+ADBDPlayer* ALocker::GetPlayerInLocker() const
+{
+	return NULL;
 }
 
-
-void ALocker::Authority_ReportOpenLockerNoiseEventToAI(const bool fastActivation) {
+FVector ALocker::GetPlayerInClosetLocation()
+{
+	return FVector{};
 }
 
-void ALocker::Authority_EnableOtherInteractors(const UInteractor* usableInteractor, bool usable) {
+USkeletalMeshComponent* ALocker::GetMesh() const
+{
+	return NULL;
 }
 
-bool ALocker::AreInteractionsAllowed() const {
-    return false;
+UInteractionDefinition* ALocker::GetLockerHideEnterSneakInteraction() const
+{
+	return NULL;
 }
 
-void ALocker::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(ALocker, _preventAllInteractions);
+UInteractor* ALocker::GetInteractor() const
+{
+	return NULL;
 }
 
-ALocker::ALocker() {
-    this->FastDoorActivationAudibleRange = 1600.00f;
-    this->NormalDoorActivationAudibleRange = 800.00f;
-    this->_montageFollower = CreateDefaultSubobject<UAnimationMontageSlave>(TEXT("MontageSlave"));
-    this->_montagePlayer = CreateDefaultSubobject<UMontagePlayer>(TEXT("AnimMontagePlayer"));
-    this->_playerOpeningLocker = NULL;
-    this->_survivorInLocker = NULL;
-    this->_mainInteractor = NULL;
-    this->_frontInteractionZone = NULL;
-    this->_searchEmpty = NULL;
-    this->_searchPlayer = NULL;
-    this->_killerInteractionActor = NULL;
-    this->_lockerAnimInstance = NULL;
-    this->_preventAllInteractions = false;
-    this->_preventAllInteractionsLocally = false;
+AActor* ALocker::GetChildInteractionActor() const
+{
+	return NULL;
 }
 
+void ALocker::Authority_ReportOpenLockerNoiseEventToAI(const bool fastActivation)
+{
+
+}
+
+void ALocker::Authority_EnableOtherInteractors(const UInteractor* usableInteractor, bool usable)
+{
+
+}
+
+void ALocker::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(ALocker, _preventAllInteractions);
+	DOREPLIFETIME(ALocker, _spawnedLockerItem);
+}
+
+ALocker::ALocker()
+{
+	this->FastDoorActivationAudibleRange = 1600.000000;
+	this->NormalDoorActivationAudibleRange = 800.000000;
+	this->_boxComponent = NULL;
+	this->_montageFollower = CreateDefaultSubobject<UAnimationMontageSlave>(TEXT("MontageSlave"));
+	this->_montagePlayer = CreateDefaultSubobject<UMontagePlayer>(TEXT("AnimMontagePlayer"));
+	this->_playerOpeningLocker = NULL;
+	this->_playerInLocker = NULL;
+	this->_mainInteractor = NULL;
+	this->_frontInteractionZone = NULL;
+	this->_searchEmpty = NULL;
+	this->_searchPlayer = NULL;
+	this->_killerInteractionActor = NULL;
+	this->_enterSneak = NULL;
+	this->_camperSocket = NAME_None;
+	this->_lockerAnimInstance = NULL;
+	this->_preventAllInteractions = false;
+	this->_local_preventAllInteractions = false;
+	this->_spawnedLockerItem = NULL;
+	this->_perceptionStimuliComponent = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("AIPerceptionStimuliSourceComponent"));
+}

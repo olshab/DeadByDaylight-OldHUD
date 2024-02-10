@@ -1,25 +1,47 @@
 #include "AudioUtilities.h"
+#include "OnAkBankCallback.h"
 
+class UObject;
+class UAkComponent;
 class UAkAudioEvent;
 class UAkAudioBank;
-class UObject;
 
-void UAudioUtilities::PostAkAudioEvent(UAkAudioEvent* audioEvent) {
+void UAudioUtilities::PostEventByNameOnComponent(UAkComponent* component, const FString& audioEventName)
+{
+
 }
 
-void UAudioUtilities::DBD_PostUiEvent(UAkAudioEvent* event) {
+void UAudioUtilities::PostAkAudioEvent(UAkAudioEvent* audioEvent)
+{
+
 }
 
-UObject* UAudioUtilities::DBD_LoadPersistentBankByAssetPtr(TSoftObjectPtr<UAkAudioBank> bank) {
-    return NULL;
+void UAudioUtilities::DBD_UnloadAudioBank(UAkAudioBank* bank, const UObject* worldContextObject)
+{
+
 }
 
-void UAudioUtilities::DBD_LoadPersistentBankAsync(UAkAudioBank* bank) {
+void UAudioUtilities::DBD_LoadAudioBankWithCallback(UAkAudioBank* bank, const FOnAkBankCallback& bankLoadedCallback, const UObject* worldContextObject)
+{
+
 }
 
-void UAudioUtilities::DBD_LoadPersistentBank(UAkAudioBank* bank) {
+void UAudioUtilities::DBD_LoadAudioBankPersistentWithCallback(UAkAudioBank* bank, const FOnAkBankCallback& bankLoadedCallback, const UObject* worldContextObject)
+{
+
 }
 
-UAudioUtilities::UAudioUtilities() {
+void UAudioUtilities::DBD_LoadAudioBankPersistent(UAkAudioBank* bank, const UObject* worldContextObject)
+{
+
 }
 
+void UAudioUtilities::DBD_LoadAudioBank(UAkAudioBank* bank, const UObject* worldContextObject)
+{
+
+}
+
+UAudioUtilities::UAudioUtilities()
+{
+
+}

@@ -1,19 +1,24 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "ELevelLoadingSteps.generated.h"
 
-UENUM()
-enum class ELevelLoadingSteps {
-    Invalid,
-    WaitingForPlayersToBeSpawned,
-    WaitingForAIPawnToBeSpawned,
-    WaitingForAssetPreloader,
-    WaitingForLoadoutAndTheme,
-    WaitingForPIAToBeSpawnedAndInitialized,
-    WaitingForNavmeshComputationToStart,
-    WaitingForNavmeshComputationToFinish,
-    SetGameLoadedAndReadyToPlay,
-    WaitingForIntroToBeDone,
-    LoadingCompleted,
+UENUM(BlueprintType)
+enum class ELevelLoadingSteps : uint8
+{
+	Invalid,
+	WaitingForProceduralLevelBuilder,
+	WaitingForPlayersToBeSpawned,
+	WaitingForAIPawnToBeSpawned,
+	WaitingForKillerSpecificStateComponentLogic,
+	WaitingForMapSpecificComponentLogic,
+	WaitingForAssetPreloader,
+	WaitingForLoadoutAndTheme,
+	WaitingForPIAToBeSpawnedAndInitialized,
+	WaitingForNavmeshComputation,
+	SetGameLoadedAndReadyToPlay,
+	WaitingForIntroToBeDone,
+	LoadingCompleted,
+	FirstLoadingStep = 1,
+	Count = 12,
 };
-

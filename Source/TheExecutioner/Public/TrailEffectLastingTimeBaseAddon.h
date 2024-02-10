@@ -1,17 +1,26 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "SpawnEffectsOnAllSurvivorsBaseAddon.h"
+#include "Templates/SubclassOf.h"
 #include "TrailEffectLastingTimeBaseAddon.generated.h"
 
+class UStatusEffect;
+
 UCLASS(meta=(BlueprintSpawnableComponent))
-class UTrailEffectLastingTimeBaseAddon : public USpawnEffectsOnAllSurvivorsBaseAddon {
-    GENERATED_BODY()
-public:
+class UTrailEffectLastingTimeBaseAddon : public USpawnEffectsOnAllSurvivorsBaseAddon
+{
+	GENERATED_BODY()
+
 private:
-    UPROPERTY(EditDefaultsOnly)
-    float _trailEffectLastingTimeModifierValue;
-    
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UStatusEffect> _modifySurvivorTrailEffectLastingTimeEffect;
+
+	UPROPERTY(EditDefaultsOnly)
+	float _trailEffectLastingTimeModifierValue;
+
 public:
-    UTrailEffectLastingTimeBaseAddon();
+	UTrailEffectLastingTimeBaseAddon();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UTrailEffectLastingTimeBaseAddon) { return 0; }

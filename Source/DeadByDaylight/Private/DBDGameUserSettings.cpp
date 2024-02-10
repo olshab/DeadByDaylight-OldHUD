@@ -1,97 +1,160 @@
 #include "DBDGameUserSettings.h"
+#include "Rendering/RenderingCommon.h"
 
 class UDBDGameUserSettings;
 
-int32 UDBDGameUserSettings::GetSkillCheckScaleFactor() const {
-    return 0;
+bool UDBDGameUserSettings::GetTerrorRadiusVisualFeedback() const
+{
+	return false;
 }
 
-int32 UDBDGameUserSettings::GetMenuScaleFactor() const {
-    return 0;
+int32 UDBDGameUserSettings::GetSkillCheckScaleFactor() const
+{
+	return 0;
 }
 
-bool UDBDGameUserSettings::GetLargeText() const {
-    return false;
+int32 UDBDGameUserSettings::GetMenuScaleFactor() const
+{
+	return 0;
 }
 
-bool UDBDGameUserSettings::GetHUDScoreEventsVisibility() const {
-    return false;
+bool UDBDGameUserSettings::GetLegacyPrestigePortraits() const
+{
+	return false;
 }
 
-int32 UDBDGameUserSettings::GetHudScaleFactor() const {
-    return 0;
+bool UDBDGameUserSettings::GetLargeText() const
+{
+	return false;
 }
 
-bool UDBDGameUserSettings::GetHUDPlayerNamesVisibility() const {
-    return false;
+bool UDBDGameUserSettings::GetHUDScoreEventsVisibility() const
+{
+	return false;
 }
 
-bool UDBDGameUserSettings::GetHUDKillerHookCountVisibility() const {
-    return false;
+int32 UDBDGameUserSettings::GetHudScaleFactor() const
+{
+	return 0;
 }
 
-UDBDGameUserSettings* UDBDGameUserSettings::GetDBDGameUserSettings() {
-    return NULL;
+bool UDBDGameUserSettings::GetHUDPlayerNamesVisibility() const
+{
+	return false;
 }
 
-int32 UDBDGameUserSettings::GetColorBlindModeIntensity() const {
-    return 0;
+bool UDBDGameUserSettings::GetHUDKillerHookCountVisibility() const
+{
+	return false;
 }
 
-EColorVisionDeficiency UDBDGameUserSettings::GetColorBlindMode() const {
-    return EColorVisionDeficiency::NormalVision;
+int32 UDBDGameUserSettings::GetFieldOfView() const
+{
+	return 0;
 }
 
-UDBDGameUserSettings::UDBDGameUserSettings() {
-    this->ScalabilityLevel = 3;
-    this->AutoScalabilitySet = false;
-    this->AutoAdjust = false;
-    this->ScreenResolution = 100;
-    this->FullScreen = true;
-    this->MenuScaleFactor = 100;
-    this->HudScaleFactor = 100;
-    this->SkillCheckScaleFactor = 100;
-    this->LargeText = false;
-    this->HUDPlayerNamesVisibility = true;
-    this->HUDKillerHookCountVisibility = true;
-    this->HUDScoreEventsVisibility = true;
-    this->FPSLimit = 30;
-    this->MainVolume = 20;
-    this->MainVolumeOn = true;
-    this->MenuMusicVolume = 40;
-    this->MenuMusicVolumeOn = true;
-    this->UseHeadphones = true;
-    this->MuteOnFocusLost = true;
-    this->KillerCameraSensitivity = 50;
-    this->SurvivorCameraSensitivity = 50;
-    this->KillerMouseSensitivity = 50;
-    this->SurvivorMouseSensitivity = 50;
-    this->KillerControllerSensitivity = 5;
-    this->SurvivorControllerSensitivity = 20;
-    this->AimAssist = false;
-    this->ControlType = 1;
-    this->InvertY = false;
-    this->SurvivorInvertY = false;
-    this->KillerToggleInteractions = false;
-    this->SurvivorToggleInteractions = false;
-    this->SprintToCancel = false;
-    this->Language = TEXT("en");
-    this->LanguageIsDefinedByPlayer = false;
-    this->HighestWeightSeenNews = 30397;
-    this->LastPanelContextId = 0;
-    this->ArchivesAutoPlayVoiceOver = true;
-    this->HasAcceptedCrossplayPopup = true;
-    this->HasAcceptedCrossProgressionPopup = true;
-    this->UseAtlantaCustomizedHuds = false;
-    this->UseAtlantaSurvivorQuickTurn = true;
-    this->UseAtlantaKillerQuickTurn = true;
-    this->ShowPortraitBorder = false;
-    this->PartyPrivacyState = TEXT("public");
-    this->ColorBlindMode = 0;
-    this->ColorBlindModeIntensity = 0;
-    this->BeginnerMode = true;
-    this->Subtitles = false;
-    this->SubtitlesBackgroundOpacity = 1;
-    this->SubtitlesSize = 1;
+UDBDGameUserSettings* UDBDGameUserSettings::GetDBDGameUserSettings()
+{
+	return NULL;
 }
 
+int32 UDBDGameUserSettings::GetColorBlindModeIntensity() const
+{
+	return 0;
+}
+
+EColorVisionDeficiency UDBDGameUserSettings::GetColorBlindMode() const
+{
+	return EColorVisionDeficiency::NormalVision;
+}
+
+bool UDBDGameUserSettings::GetChallengeProgression() const
+{
+	return false;
+}
+
+bool UDBDGameUserSettings::GetChallengeCompletion() const
+{
+	return false;
+}
+
+bool UDBDGameUserSettings::GetBloodwebInteractionBehaviour() const
+{
+	return false;
+}
+
+UDBDGameUserSettings::UDBDGameUserSettings()
+{
+	this->ActionMappings = TArray<FInputActionKeyMapping>();
+	this->AxisMappings = TArray<FInputAxisKeyMapping>();
+	this->DeviceLoginTokenID = TEXT("");
+	this->ScalabilityLevel = 0;
+	this->AutoScalabilitySet = false;
+	this->AutoAdjust = false;
+	this->ScreenRenderSize = 100;
+	this->HUDConstrainedAspectRatio = false;
+	this->MenuScaleFactor = 100;
+	this->HudScaleFactor = 100;
+	this->SkillCheckScaleFactor = 100;
+	this->LargeText = false;
+	this->BloodwebInteractionBehaviour = true;
+	this->TerrorRadiusVisualFeedback = false;
+	this->FieldOfView = 87;
+	this->HUDPlayerNamesVisibility = true;
+	this->HUDKillerHookCountVisibility = true;
+	this->HUDScoreEventsVisibility = true;
+	this->LegacyPrestigePortraits = true;
+	this->ChallengeProgression = true;
+	this->ChallengeCompletion = true;
+	this->FPSLimitMode = 60;
+	this->AntiAliasingMode = 0;
+	this->EnableFSR = false;
+	this->SharpnessValue = 3.000000;
+	this->MainVolume = 80;
+	this->MainVolumeOn = true;
+	this->MenuMusicVolume = 100;
+	this->MenuMusicVolumeOn = true;
+	this->UseHeadphones = true;
+	this->MuteOnFocusLost = true;
+	this->HapticsVibrationPS5 = true;
+	this->KillerCameraSensitivity = 50;
+	this->SurvivorCameraSensitivity = 50;
+	this->KillerMouseSensitivity = 50;
+	this->SurvivorMouseSensitivity = 50;
+	this->KillerControllerSensitivity = 100;
+	this->SurvivorControllerSensitivity = 50;
+	this->AimAssist = true;
+	this->ControlType = 1;
+	this->InvertY = false;
+	this->SurvivorInvertY = false;
+	this->KillerToggleInteractions = false;
+	this->SurvivorToggleInteractions = false;
+	this->SprintToCancel = false;
+	this->Language = TEXT("en");
+	this->LanguageIsDefinedByPlayer = false;
+	this->HighestWeightSeenNews = 46560;
+	this->LastPanelContextId = 0;
+	this->ArchivesAutoPlayVoiceOver = true;
+	this->ArchivesFullscreenTextVisibility = true;
+	this->HasAcceptedCrossplayPopup = true;
+	this->HasAcceptedProgressionSystemInfoPopup = true;
+	this->HasAcceptedHapticsVibrationPopup = false;
+	this->HasAcceptedCrossProgressionPopup = true;
+	this->UseAtlantaCustomizedHuds = false;
+	this->UseAtlantaSurvivorQuickTurn = true;
+	this->UseAtlantaKillerQuickTurn = true;
+	this->AtlantaCustomizedHuds = TArray<FAtlantaCustomizedHudSettings>();
+	this->ShowPortraitBorder = false;
+	this->PartyPrivacyState = TEXT("friends");
+	this->ColorBlindMode = 0;
+	this->ColorBlindModeIntensity = 0;
+	this->BeginnerMode = true;
+	this->Subtitles = false;
+	this->SubtitlesBackgroundOpacity = 1;
+	this->SubtitlesSize = 1;
+	this->IsAnonymousMode = true;
+	this->HideYourName = true;
+	this->HideOtherNames = false;
+	this->HiddenMatchmakingDelay = false;
+	this->PlayerCardAnimationMode = 0;
+}

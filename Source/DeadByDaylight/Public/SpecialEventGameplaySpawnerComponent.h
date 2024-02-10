@@ -1,12 +1,16 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
+#include "GameplaySpawnerComponent.h"
 #include "SpecialEventGameplaySpawnerComponent.generated.h"
 
 UCLASS(meta=(BlueprintSpawnableComponent))
-class DEADBYDAYLIGHT_API USpecialEventGameplaySpawnerComponent : public UActorComponent {
-    GENERATED_BODY()
+class DEADBYDAYLIGHT_API USpecialEventGameplaySpawnerComponent : public UGameplaySpawnerComponent
+{
+	GENERATED_BODY()
+
 public:
-    USpecialEventGameplaySpawnerComponent();
+	USpecialEventGameplaySpawnerComponent();
 };
 
+FORCEINLINE uint32 GetTypeHash(const USpecialEventGameplaySpawnerComponent) { return 0; }

@@ -13,6 +13,11 @@
 			]
 		},
 		{
+			"Name": "Achievements",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
 			"Name": "AnimationUtilities",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
@@ -28,12 +33,31 @@
 			"LoadingPhase": "Default"
 		},
 		{
+			"Name": "Anniversary2023",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine",
+				"DBDGameplay"
+			]
+		},
+		{
 			"Name": "Archives",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
 		{
 			"Name": "AudioUtilities",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "CoreMemory",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "Customization",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -56,7 +80,10 @@
 		{
 			"Name": "DBDAnimation",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		},
 		{
 			"Name": "DBDAttack",
@@ -70,6 +97,14 @@
 		},
 		{
 			"Name": "DBDCompetence",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight"
+			]
+		},
+		{
+			"Name": "DBDCosmetic",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
@@ -95,6 +130,11 @@
 			"LoadingPhase": "Default"
 		},
 		{
+			"Name": "DBDGraphics",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
 			"Name": "DBDMetaGameplay",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
@@ -112,7 +152,7 @@
 		{
 			"Name": "GFXUtilities",
 			"Type": "Runtime",
-			"LoadingPhase": "PostEngineInit"
+			"LoadingPhase": "PostConfigInit"
 		},
 		{
 			"Name": "Gnome2021",
@@ -131,6 +171,26 @@
 		},
 		{
 			"Name": "Halloween2021",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "Halloween2022",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "Halloween2023",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "Lunar2022",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "Lunar2023",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -157,7 +217,10 @@
 		{
 			"Name": "SpecialEventUtilities",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		},
 		{
 			"Name": "TheBlight",
@@ -172,7 +235,10 @@
 		{
 			"Name": "TheClown",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight"
+			]
 		},
 		{
 			"Name": "TheDemogorgon",
@@ -262,6 +328,53 @@
 			]
 		},
 		{
+			"Name": "TheK28",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight",
+				"Engine"
+			]
+		},
+		{
+			"Name": "TheK29",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight",
+				"Engine"
+			]
+		},
+		{
+			"Name": "TheK30",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TheK31",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TheK32",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TheK33",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight",
+				"DBDAttack"
+			]
+		},
+		{
+			"Name": "TheK34",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
 			"Name": "TheLegion",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
@@ -269,15 +382,27 @@
 		{
 			"Name": "TheNightmare",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight"
+			]
 		},
 		{
 			"Name": "TheNurse",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Competence",
+				"DeadByDaylight"
+			]
 		},
 		{
 			"Name": "TheOni",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TheOnryo",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -290,6 +415,22 @@
 			"Name": "ThePlague",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "TheS38",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight"
+			]
+		},
+		{
+			"Name": "TheS40",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"DeadByDaylight"
+			]
 		},
 		{
 			"Name": "TheShape",
@@ -329,7 +470,17 @@
 			"LoadingPhase": "Default"
 		},
 		{
-			"Name": "Winter2021",
+			"Name": "SnowmanWinterEvent",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "Barrel2023",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "WinterEvent2023",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -349,12 +500,12 @@
 			"LoadingPhase": "Default"
 		},
 		{
-			"Name": "CoreUtilities",
+			"Name": "CoreCommonUIUtils",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
 		{
-			"Name": "Customization",
+			"Name": "CoreUtilities",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -364,7 +515,17 @@
 			"LoadingPhase": "Default"
 		},
 		{
+			"Name": "DBDAnimationBudgetAllocator",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
 			"Name": "DBDInput",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "DBDVideoPlayer",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -419,11 +580,6 @@
 			"LoadingPhase": "Default"
 		},
 		{
-			"Name": "Lunar2022",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		},
-		{
 			"Name": "MatchHistory",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
@@ -465,11 +621,6 @@
 		},
 		{
 			"Name": "PhysicsUtilities",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		},
-		{
-			"Name": "PlatformUtilities",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -520,6 +671,11 @@
 		},
 		{
 			"Name": "SharedAuthenticationUtilities",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "SimpleStateMachine",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		},
@@ -581,10 +737,6 @@
 	],
 	"Plugins": [
 		{
-			"Name": "ChaosEditor",
-			"Enabled": false
-		},
-		{
 			"Name": "MirrorsSdk",
 			"Enabled": true
 		},
@@ -610,17 +762,6 @@
 			]
 		},
 		{
-			"Name": "OnlineSubsystemIOS",
-			"Enabled": true,
-			"WhitelistPlatforms": [
-				"iOS"
-			],
-			"SupportedTargetPlatforms": [
-				"IOS",
-				"TVOS"
-			]
-		},
-		{
 			"Name": "OnlineSubsystemSteam",
 			"Enabled": true,
 			"WhitelistPlatforms": [
@@ -628,16 +769,6 @@
 				"Win64",
 				"Mac",
 				"Linux"
-			]
-		},
-		{
-			"Name": "OnlineSubsystemGooglePlay",
-			"Enabled": true,
-			"WhitelistPlatforms": [
-				"Android"
-			],
-			"SupportedTargetPlatforms": [
-				"Android"
 			]
 		},
 		{
@@ -653,87 +784,12 @@
 			"Enabled": true
 		},
 		{
-			"Name": "LinuxDeviceProfileSelector",
-			"Enabled": false
-		},
-		{
 			"Name": "SpeedTreeImporter",
 			"Enabled": true
 		},
 		{
-			"Name": "UObjectPlugin",
-			"Enabled": false
-		},
-		{
-			"Name": "ArchVisCharacter",
-			"Enabled": false
-		},
-		{
-			"Name": "AlembicImporter",
-			"Enabled": false
-		},
-		{
-			"Name": "AndroidMedia",
-			"Enabled": false
-		},
-		{
-			"Name": "AvfMedia",
-			"Enabled": false
-		},
-		{
-			"Name": "MacGraphicsSwitching",
-			"Enabled": false
-		},
-		{
-			"Name": "SlateRemote",
-			"Enabled": false
-		},
-		{
-			"Name": "AndroidMoviePlayer",
-			"Enabled": false
-		},
-		{
-			"Name": "AppleMoviePlayer",
-			"Enabled": false
-		},
-		{
-			"Name": "KDevelopSourceCodeAccess",
-			"Enabled": false
-		},
-		{
-			"Name": "NullSourceCodeAccess",
-			"Enabled": false
-		},
-		{
-			"Name": "XCodeSourceCodeAccess",
-			"Enabled": false
-		},
-		{
-			"Name": "CodeLiteSourceCodeAccess",
-			"Enabled": false
-		},
-		{
-			"Name": "CableComponent",
-			"Enabled": false
-		},
-		{
-			"Name": "GitSourceControl",
-			"Enabled": false
-		},
-		{
-			"Name": "SubversionSourceControl",
-			"Enabled": false
-		},
-		{
 			"Name": "BeUtil",
 			"Enabled": true
-		},
-		{
-			"Name": "MfMedia",
-			"Enabled": true,
-			"WhitelistPlatforms": [
-				"XboxOne"
-			]
 		},
 		{
 			"Name": "BeData",
@@ -764,10 +820,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "WebMMoviePlayer",
-			"Enabled": true
-		},
-		{
 			"Name": "RenderDocPlugin",
 			"Enabled": true
 		},
@@ -778,19 +830,6 @@
 		{
 			"Name": "AESHandlerComponent",
 			"Enabled": true
-		},
-		{
-			"Name": "SteamVR",
-			"Enabled": false
-		},
-		{
-			"Name": "OculusVR",
-			"Enabled": false
-		},
-		{
-			"Name": "Substance",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/2f6439c2f9584f49809d9b13b16c2ba4"
 		},
 		{
 			"Name": "StaticMeshEditorExtension",
@@ -829,29 +868,50 @@
 			"Enabled": true
 		},
 		{
-			"Name": "Gauntlet",
+			"Name": "Simplygon",
+			"Enabled": true
+		},
+		{
+			"Name": "MovieRenderPipeline",
+			"Enabled": true
+		},
+		{
+			"Name": "MoviePipelineMaskRenderPass",
+			"Enabled": true
+		},
+		{
+			"Name": "CascadeToNiagaraConverter",
+			"Enabled": true
+		},
+		{
+			"Name": "BinkMedia",
+			"Enabled": true
+		},
+		{
+			"Name": "SentryIo",
+			"Enabled": true
+		},
+		{
+			"Name": "Sentry",
 			"Enabled": true,
-			"BlacklistTargetConfigurations": [
-				"Shipping"
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/99f5c02de5fa49ab97976a3a852e5408",
+			"WhitelistPlatforms": [
+				"Win64",
+				"Linux",
+				"LinuxAArch64"
 			]
 		},
 		{
-			"Name": "FunctionalTestingEditor",
-			"Enabled": true,
-			"BlacklistTargetConfigurations": [
-				"Shipping"
-			]
+			"Name": "BhvrCheatMenu",
+			"Enabled": true
+		},
+		{
+			"Name": "RemoteContentCache",
+			"Enabled": true
+		},
+		{
+			"Name": "DBDAssetExclusion",
+			"Enabled": true
 		}
-	],
-	"TargetPlatforms": [
-		"PS4",
-		"PS5",
-		"WindowsNoEditor",
-		"XboxOne",
-		"Android",
-		"iOS",
-		"Mac",
-		"Stadia",
-		"EGS"
 	]
 }

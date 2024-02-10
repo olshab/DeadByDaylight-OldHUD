@@ -1,6 +1,7 @@
 #include "IridescentCoinAddon.h"
 
-UIridescentCoinAddon::UIridescentCoinAddon() {
-    this->_exposedStatusEffect = NULL;
+UIridescentCoinAddon::UIridescentCoinAddon()
+{
+	this->_exposedStatusEffectClass = NULL;
+	this->_exposedStatusEffect = NULL;
 }
-

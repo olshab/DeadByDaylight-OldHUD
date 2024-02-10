@@ -1,21 +1,28 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "EPlayerTeam.h"
 #include "HudEventProgressionViewData.generated.h"
 
 USTRUCT(BlueprintType)
-struct FHudEventProgressionViewData {
-    GENERATED_BODY()
+struct FHudEventProgressionViewData
+{
+	GENERATED_BODY()
+
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-        EPlayerTeam playerTeam;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 ProgressBanked;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-        bool isHatchOpen;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 ProgressPending;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-        int32 nbGeneratorsLeft;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 ProgressCapacity;
 
-    DBDUIVIEWINTERFACES_API FHudEventProgressionViewData();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 ProgressMax;
+
+public:
+	DBDUIVIEWINTERFACES_API FHudEventProgressionViewData();
 };
 
+FORCEINLINE uint32 GetTypeHash(const FHudEventProgressionViewData) { return 0; }

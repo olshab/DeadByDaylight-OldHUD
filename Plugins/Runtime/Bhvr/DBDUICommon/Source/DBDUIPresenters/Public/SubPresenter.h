@@ -1,12 +1,23 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "UIComponent.h"
+#include "UObject/NoExportTypes.h"
 #include "SubPresenter.generated.h"
 
-UCLASS(Abstract, meta=(BlueprintSpawnableComponent))
-class DBDUIPRESENTERS_API USubPresenter : public UUIComponent {
-    GENERATED_BODY()
+UCLASS(Abstract)
+class DBDUIPRESENTERS_API USubPresenter : public UObject
+{
+	GENERATED_BODY()
+
 public:
-    USubPresenter();
+	UFUNCTION()
+	void OnPresenterStopAsyncOperation();
+
+	UFUNCTION()
+	void OnPresenterStartAsyncOperation();
+
+public:
+	USubPresenter();
 };
 
+FORCEINLINE uint32 GetTypeHash(const USubPresenter) { return 0; }

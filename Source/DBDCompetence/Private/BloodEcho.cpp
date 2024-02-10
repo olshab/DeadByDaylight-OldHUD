@@ -1,8 +1,13 @@
 #include "BloodEcho.h"
 
-UBloodEcho::UBloodEcho() {
-    this->_cooldownDuration[0] = 0.00f;
-    this->_cooldownDuration[1] = 0.00f;
-    this->_cooldownDuration[2] = 0.00f;
+float UBloodEcho::GetCooldownDurationAtLevel() const
+{
+	return 0.0f;
 }
 
+UBloodEcho::UBloodEcho()
+{
+	this->_hemorrhageStatusEffectClass = NULL;
+	this->_exhaustedStatusEffectClass = NULL;
+	this->_cooldownDuration = 0.000000;
+}

@@ -1,21 +1,39 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "PounceAttack.h"
-#include "GameplayTagContainer.h"
+#include "BaseChainsawAttack.h"
+#include "StatProperty.h"
 #include "HillbillyChainsawAttack.generated.h"
 
 UCLASS(meta=(BlueprintSpawnableComponent))
-class THEHILLBILLY_API UHillbillyChainsawAttack : public UPounceAttack {
-    GENERATED_BODY()
+class THEHILLBILLY_API UHillbillyChainsawAttack : public UBaseChainsawAttack
+{
+	GENERATED_BODY()
+
+private:
+	UPROPERTY(EditDefaultsOnly)
+	FStatProperty _initialChainsawTurnRate;
+
+	UPROPERTY(EditDefaultsOnly)
+	FStatProperty _chainsawTurnRate;
+
+	UPROPERTY(EditDefaultsOnly)
+	FStatProperty _turnRateAdjustmentTime;
+
+	UPROPERTY(EditDefaultsOnly)
+	FStatProperty _overheatMaxSpeedOverride;
+
+	UPROPERTY(EditDefaultsOnly)
+	FStatProperty _overheatMaxSpeedAdjustmentTime;
+
+	UPROPERTY(EditDefaultsOnly)
+	FStatProperty _attackZoneScaleFactor;
+
+	UPROPERTY(EditDefaultsOnly)
+	FStatProperty _obstructionZoneScaleFactor;
+
 public:
-protected:
-    UPROPERTY(EditDefaultsOnly)
-    FGameplayTag _chainsawHitGameEventTag;
-    
-    UPROPERTY(EditDefaultsOnly)
-    FGameplayTag _chainsawAttemptGameEventTag;
-    
-public:
-    UHillbillyChainsawAttack();
+	UHillbillyChainsawAttack();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UHillbillyChainsawAttack) { return 0; }

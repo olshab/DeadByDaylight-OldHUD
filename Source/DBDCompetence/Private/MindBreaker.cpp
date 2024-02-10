@@ -1,8 +1,13 @@
 #include "MindBreaker.h"
 
-UMindBreaker::UMindBreaker() {
-    this->_effectDurationAfterRepair[0] = 0.00f;
-    this->_effectDurationAfterRepair[1] = 0.00f;
-    this->_effectDurationAfterRepair[2] = 0.00f;
+float UMindBreaker::GetEffectDurationAfterRepairAtLevel() const
+{
+	return 0.0f;
 }
 
+UMindBreaker::UMindBreaker()
+{
+	this->_effectDurationAfterRepair = 0.000000;
+	this->_blindessEffect = NULL;
+	this->_exhaustedEffect = NULL;
+}

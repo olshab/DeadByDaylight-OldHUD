@@ -1,5 +1,6 @@
 #include "SearchOpenedChestInteraction.h"
 
-USearchOpenedChestInteraction::USearchOpenedChestInteraction() {
-}
+USearchOpenedChestInteraction::USearchOpenedChestInteraction()
+{
 
+}

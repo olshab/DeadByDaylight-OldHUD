@@ -1,71 +1,131 @@
 #include "StoreScreen.h"
 
-void UStoreScreen::OnUnlockWithCurrency(int32 currencyId, const FString& combinedItem) {
+void UStoreScreen::OnUnlockWithCurrency(int32 currencyId, const FString& combinedItem)
+{
+
 }
 
-void UStoreScreen::OnUnlockDlc(const FString& dlcId) const {
+void UStoreScreen::OnUnlockPack(const FString& packId) const
+{
+
 }
 
-void UStoreScreen::OnTabSelected(int32 index) {
+void UStoreScreen::OnUnlockDlc(const FString& dlcId) const
+{
+
 }
 
-void UStoreScreen::OnStorySelected() const {
+void UStoreScreen::OnTabSelected(int32 index)
+{
+
 }
 
-void UStoreScreen::OnStoreItemSelected(const FString& itemId) {
+void UStoreScreen::OnStorySelected() const
+{
+
 }
 
-void UStoreScreen::OnStoreItemLinkSelected(const FString& itemId) {
+void UStoreScreen::OnStoreItemSelected(const FString& itemId)
+{
+
 }
 
-void UStoreScreen::OnStoreCharacterSelected(int32 characterIndex) {
+void UStoreScreen::OnStoreItemLinkSelected(const FString& itemId)
+{
+
 }
 
-void UStoreScreen::OnStoreCatalogCategorySelected(int32 categoryIndex) {
+void UStoreScreen::OnStoreCharacterSelected(int32 characterIndex)
+{
+
 }
 
-void UStoreScreen::OnSearchInputChanged(const FString& searchInput) {
+void UStoreScreen::OnStoreCatalogCategorySelected(int32 categoryIndex)
+{
+
 }
 
-void UStoreScreen::OnRotateCharacter(float mouseDistanceChange) {
+void UStoreScreen::OnSearchInputChanged(const FString& searchInput)
+{
+
 }
 
-void UStoreScreen::OnPromoCodeButtonClicked() {
+void UStoreScreen::OnRotateCharacter(float mouseDistanceChange)
+{
+
 }
 
-void UStoreScreen::OnNotEnoughTokens() {
+void UStoreScreen::OnPromoCodeButtonClicked()
+{
+
 }
 
-void UStoreScreen::OnMarketSlotButtonClick(int32 slotIndex) {
+void UStoreScreen::OnPlayMoriSelected() const
+{
+
 }
 
-void UStoreScreen::OnFiltersUpdated(bool all, bool rarityCommon, bool rarityUncommon, bool rarityRare, bool rarityVeryRare, bool rarityUltraRare, bool rarityArtifact, bool rarityLegendary, bool raritySpecialEvent, bool includeAllOwnedItems) {
+void UStoreScreen::OnNotEnoughTokens()
+{
+
 }
 
-void UStoreScreen::OnFeaturedStoreItemSelected(const FString& itemId, bool isOutfit) {
+void UStoreScreen::OnMarketSlotButtonClick(int32 slotIndex)
+{
+
 }
 
-void UStoreScreen::OnFeaturedCharacterSelected(int32 characterIndex) {
+void UStoreScreen::OnFiltersUpdated(bool all, bool rarityCommon, bool rarityUncommon, bool rarityRare, bool rarityVeryRare, bool rarityUltraRare, bool rarityArtifact, bool rarityLegendary, bool raritySpecialEvent, bool includeAllOwnedItems)
+{
+
 }
 
-void UStoreScreen::OnFeaturedButtonSelected(int32 linkIndex) {
+void UStoreScreen::OnFeaturedStoreItemSelected(const FString& itemId, bool isOutfit)
+{
+
 }
 
-void UStoreScreen::OnFeaturedBannerItemSelected(const FString& itemId, bool isOutfit) {
+void UStoreScreen::OnFeaturedCharacterSelected(int32 characterIndex)
+{
+
 }
 
-void UStoreScreen::OnFeaturedBannerDlcSelected(const FString& dlcId) {
+void UStoreScreen::OnFeaturedButtonSelected(int32 linkIndex)
+{
+
 }
 
-void UStoreScreen::OnEquipItem(const FString& itemId) {
+void UStoreScreen::OnFeaturedBannerPackSelected(const FString& packId)
+{
+
 }
 
-void UStoreScreen::OnCatalogSelected() const {
+void UStoreScreen::OnFeaturedBannerItemSelected(const FString& itemId, bool isOutfit)
+{
+
 }
 
-void UStoreScreen::OnBuyCurrencyBundle(int32 index) {
+void UStoreScreen::OnFeaturedBannerDlcSelected(const FString& dlcId)
+{
+
 }
 
-UStoreScreen::UStoreScreen() {
+void UStoreScreen::OnEquipItem(const FString& itemId)
+{
+
 }
 
+void UStoreScreen::OnCatalogSelected() const
+{
+
+}
+
+void UStoreScreen::OnBuyCurrencyBundle(int32 index)
+{
+
+}
+
+UStoreScreen::UStoreScreen()
+{
+
+}

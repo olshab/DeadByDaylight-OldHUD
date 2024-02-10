@@ -1,8 +1,9 @@
 #include "HudEventProgressionViewData.h"
 
-FHudEventProgressionViewData::FHudEventProgressionViewData() {
-    this->playerTeam = EPlayerTeam::VE_None;
-    this->isHatchOpen = false;
-    this->nbGeneratorsLeft = 0;
+FHudEventProgressionViewData::FHudEventProgressionViewData()
+{
+	this->ProgressBanked = 0;
+	this->ProgressPending = 0;
+	this->ProgressCapacity = 0;
+	this->ProgressMax = 0;
 }
-

@@ -1,23 +1,26 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "UObject/Object.h"
+#include "UObject/NoExportTypes.h"
 #include "DBDBaseInputHandler.generated.h"
 
 class USpringArmComponent;
 class APawn;
 
 UCLASS()
-class UDBDBaseInputHandler : public UObject {
-    GENERATED_BODY()
-public:
+class UDBDBaseInputHandler : public UObject
+{
+	GENERATED_BODY()
+
 protected:
-    UPROPERTY(Transient)
-    APawn* _pawn;
-    
-    UPROPERTY(Export, Transient)
-    USpringArmComponent* _cameraBoom;
-    
+	UPROPERTY(Transient)
+	APawn* _pawn;
+
+	UPROPERTY(Transient, meta=(BindWidgetOptional))
+	USpringArmComponent* _cameraBoom;
+
 public:
-    UDBDBaseInputHandler();
+	UDBDBaseInputHandler();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UDBDBaseInputHandler) { return 0; }

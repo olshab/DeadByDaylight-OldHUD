@@ -1,0 +1,6 @@
+#include "CoreMemorySpawnFragmentOnEventWithinRangeOfTargetBehaviour.h"
+
+UCoreMemorySpawnFragmentOnEventWithinRangeOfTargetBehaviour::UCoreMemorySpawnFragmentOnEventWithinRangeOfTargetBehaviour()
+{
+	this->_tileSpawnPointType = ETileSpawnPointType::Unspecified;
+}

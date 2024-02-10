@@ -1,55 +1,77 @@
 #include "RifleChain.h"
+#include "UObject/NoExportTypes.h"
+#include "Engine/EngineTypes.h"
 
-class USplineComponent;
-class UInstancedStaticMeshComponent;
-class UCurveFloat;
 class URiflePlayerLinker;
+class UInstancedStaticMeshComponent;
+class USplineComponent;
+class UCurveFloat;
+class ADBDPlayer;
 class URifleChainTensionComponent;
 
-void ARifleChain::UpdateChainMesh(UInstancedStaticMeshComponent* mesh, USplineComponent* spline, float alpha) {
+void ARifleChain::UpdateChainMesh(UInstancedStaticMeshComponent* mesh, USplineComponent* spline, float alpha)
+{
+
 }
 
-int32 ARifleChain::SpawnChainPoints(FVector start, FVector stop, UCurveFloat* influenceCurve, float pointYPosition, float pointZPosition, bool useOffset, USplineComponent* spline) {
-    return 0;
+void ARifleChain::UnbindFromLinkedPlayer()
+{
+
 }
 
-
-
-
-
-bool ARifleChain::IsColliding() const {
-    return false;
+int32 ARifleChain::SpawnChainPoints(FVector start, FVector stop, UCurveFloat* influenceCurve, float pointYPosition, float pointZPosition, bool useOffset, USplineComponent* spline)
+{
+	return 0;
 }
 
-float ARifleChain::GetUnwindingSpeed() const {
-    return 0.0f;
+bool ARifleChain::IsColliding() const
+{
+	return false;
 }
 
-URiflePlayerLinker* ARifleChain::GetRiflePlayerLinker() const {
-    return NULL;
+float ARifleChain::GetUnwindingSpeed() const
+{
+	return 0.0f;
 }
 
-TArray<FHitResult> ARifleChain::GetFirstAndLastCollisionHits() const {
-    return TArray<FHitResult>();
+URiflePlayerLinker* ARifleChain::GetRiflePlayerLinker() const
+{
+	return NULL;
 }
 
-URifleChainTensionComponent* ARifleChain::GetChainTensionComponent() const {
-    return NULL;
+TArray<FHitResult> ARifleChain::GetFirstAndLastCollisionHits() const
+{
+	return TArray<FHitResult>();
 }
 
-FVector ARifleChain::GetChainStart() const {
-    return FVector{};
+URifleChainTensionComponent* ARifleChain::GetChainTensionComponent() const
+{
+	return NULL;
 }
 
-FVector ARifleChain::GetChainEnd() const {
-    return FVector{};
+FVector ARifleChain::GetChainStart() const
+{
+	return FVector{};
 }
 
-ARifleChain::ARifleChain() {
-    this->_chainCenterAkComponent = NULL;
-    this->_collisionLoopStartEvent = NULL;
-    this->_collisionLoopEndEvent = NULL;
-    this->_sphereTraceRadius = 4.00f;
-    this->_timeBetweenTrace = 0.10f;
+FVector ARifleChain::GetChainEnd() const
+{
+	return FVector{};
 }
 
+void ARifleChain::BindToLinkedPlayer(ADBDPlayer* linkedPlayer)
+{
+
+}
+
+ARifleChain::ARifleChain()
+{
+	this->_chainCenterAkComponent = NULL;
+	this->_collisionLoopStartEvent = NULL;
+	this->_collisionLoopEndEvent = NULL;
+	this->_collisionSoundLoops = TArray<FAkSoundLoop>();
+	this->_sphereTraceRadius = 4.000000;
+	this->_timeBetweenTrace = 0.100000;
+	this->_harpoon = NULL;
+	this->_linkedPlayer = NULL;
+}

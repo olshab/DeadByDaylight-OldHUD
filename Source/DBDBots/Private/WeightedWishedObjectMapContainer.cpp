@@ -1,5 +1,5 @@
 #include "WeightedWishedObjectMapContainer.h"
 
-FWeightedWishedObjectMapContainer::FWeightedWishedObjectMapContainer() {
+FWeightedWishedObjectMapContainer::FWeightedWishedObjectMapContainer()
+{
 }
-

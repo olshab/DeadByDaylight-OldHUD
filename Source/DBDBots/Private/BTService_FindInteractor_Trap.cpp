@@ -1,6 +1,7 @@
 #include "BTService_FindInteractor_Trap.h"
 
-UBTService_FindInteractor_Trap::UBTService_FindInteractor_Trap() {
-    this->TrapGroundLocationOffset = 50.00f;
+UBTService_FindInteractor_Trap::UBTService_FindInteractor_Trap()
+{
+	this->TrapGroundLocationOffset = 50.000000;
+	this->InteractableOnlyWithInteractionId = TArray<FInteractableWithInteractionId>();
 }
-

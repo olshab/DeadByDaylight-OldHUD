@@ -1,5 +1,6 @@
 #include "DriedCherryBlossom.h"
 
-UDriedCherryBlossom::UDriedCherryBlossom() {
+UDriedCherryBlossom::UDriedCherryBlossom()
+{
+	this->_spiritDriedCherryBlossomStatusEffectClass = NULL;
 }
-

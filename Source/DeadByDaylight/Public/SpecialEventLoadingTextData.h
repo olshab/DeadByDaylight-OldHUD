@@ -1,24 +1,46 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "DBDTableRowBase.h"
 #include "SpecialEventLoadingTextData.generated.h"
 
 USTRUCT(BlueprintType)
-struct FSpecialEventLoadingTextData : public FDBDTableRowBase {
-    GENERATED_BODY()
+struct FSpecialEventLoadingTextData
+{
+	GENERATED_BODY()
+
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    FName EventId;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    FText Title;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    FText Description;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    FString IconPath;
-    
-    DEADBYDAYLIGHT_API FSpecialEventLoadingTextData();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName EventId;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Title;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Description;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString IconPath;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString SpecialBehaviourId;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString Id;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool isPreviousSpecial;
+
+	UPROPERTY(SkipSerialization)
+	bool isPreviousSpecial_IsSet;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool isNextSpecial;
+
+	UPROPERTY(SkipSerialization)
+	bool isNextSpecial_IsSet;
+
+public:
+	DEADBYDAYLIGHT_API FSpecialEventLoadingTextData();
 };
 
+FORCEINLINE uint32 GetTypeHash(const FSpecialEventLoadingTextData) { return 0; }

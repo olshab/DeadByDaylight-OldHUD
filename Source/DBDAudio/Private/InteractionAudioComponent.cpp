@@ -2,11 +2,17 @@
 
 class UAkAudioEvent;
 
-bool UInteractionAudioComponent::PostAkEvent(UAkAudioEvent* akEvent) {
-    return false;
+bool UInteractionAudioComponent::PostAkEvent(UAkAudioEvent* akEvent)
+{
+	return false;
 }
 
-UInteractionAudioComponent::UInteractionAudioComponent() {
-    this->_audioComponent = NULL;
+float UInteractionAudioComponent::GetCalculatedAudioRadius() const
+{
+	return 0.0f;
 }
 
+UInteractionAudioComponent::UInteractionAudioComponent()
+{
+	this->_audioComponent = NULL;
+}

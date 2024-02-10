@@ -1,5 +1,12 @@
 #include "PharmacyPerk.h"
 
-UPharmacyPerk::UPharmacyPerk() {
+float UPharmacyPerk::GetSearchSpeedAtLevel() const
+{
+	return 0.0f;
 }
 
+UPharmacyPerk::UPharmacyPerk()
+{
+	this->_pharmacyEffectClass = NULL;
+	this->_searchSpeeds = 0.000000;
+}

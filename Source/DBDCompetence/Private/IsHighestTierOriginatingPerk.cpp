@@ -3,12 +3,22 @@
 class UGameplayModifierContainer;
 class UStatusEffect;
 
-void UIsHighestTierOriginatingPerk::OnStatusEffectApplicableChanged(UGameplayModifierContainer* gameplayModifierContainer, bool isApplicable) {
+void UIsHighestTierOriginatingPerk::OnStatusEffectApplicableChanged(UGameplayModifierContainer* gameplayModifierContainer, bool isApplicable)
+{
+
 }
 
-void UIsHighestTierOriginatingPerk::OnStatusEffectAddedOrRemoved(UStatusEffect* effect, bool valid) {
+void UIsHighestTierOriginatingPerk::OnStatusEffectAddedOrRemoved(UStatusEffect* effect, bool valid)
+{
+
 }
 
-UIsHighestTierOriginatingPerk::UIsHighestTierOriginatingPerk() {
+void UIsHighestTierOriginatingPerk::OnGameplayModifierContainerInitialized()
+{
+
 }
 
+UIsHighestTierOriginatingPerk::UIsHighestTierOriginatingPerk()
+{
+	this->_applicableEffects = TArray<UStatusEffect*>();
+}

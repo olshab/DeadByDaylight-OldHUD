@@ -1,0 +1,6 @@
+#include "CoreMemoryFragmentNotCollectedOutlineUpdateStrategy.h"
+
+UCoreMemoryFragmentNotCollectedOutlineUpdateStrategy::UCoreMemoryFragmentNotCollectedOutlineUpdateStrategy()
+{
+
+}

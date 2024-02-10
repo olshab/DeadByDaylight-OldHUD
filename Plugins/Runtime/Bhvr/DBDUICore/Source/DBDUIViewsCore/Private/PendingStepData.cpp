@@ -1,5 +1,6 @@
 #include "PendingStepData.h"
 
-FPendingStepData::FPendingStepData() {
+FPendingStepData::FPendingStepData()
+{
+	this->updatedButtonViewData = TArray<FOnboardingTutorialButtonViewData>();
 }
-

@@ -1,21 +1,50 @@
 #include "OnboardingMenuPresenter.h"
+#include "EOnboardingMenuState.h"
 
-void UOnboardingMenuPresenter::OnSetUIEnabled(bool enabled) {
+void UOnboardingMenuPresenter::OnSetUIEnabled(bool enabled)
+{
+
 }
 
-void UOnboardingMenuPresenter::OnMenuTabSelectedAgain(EOnboardingMenuState onboardingMenuState) {
+void UOnboardingMenuPresenter::OnSettingsAction()
+{
+
 }
 
-void UOnboardingMenuPresenter::OnMenuTabSelected(EOnboardingMenuState onboardingMenuState) {
+void UOnboardingMenuPresenter::OnQuitGameAction()
+{
+
 }
 
-void UOnboardingMenuPresenter::OnBackAction() {
+void UOnboardingMenuPresenter::OnMenuTabSelectedAgain(EOnboardingMenuState menuState)
+{
+
 }
 
-UOnboardingMenuPresenter::UOnboardingMenuPresenter() {
-    this->OnboardingMenuWidgetClass = NULL;
-    this->_onboardingTutorialSubPresenter = NULL;
-    this->_gameManualSubPresenter = NULL;
-    this->_activeSubPresenter = NULL;
+void UOnboardingMenuPresenter::OnMenuTabSelected(EOnboardingMenuState menuState)
+{
+
 }
 
+void UOnboardingMenuPresenter::OnFirstOnboardingStepsDone(bool isFirstStepsDone)
+{
+
+}
+
+void UOnboardingMenuPresenter::OnChangeAccountAction()
+{
+
+}
+
+void UOnboardingMenuPresenter::OnBackAction()
+{
+
+}
+
+UOnboardingMenuPresenter::UOnboardingMenuPresenter()
+{
+	this->OnboardingMenuWidgetClass = NULL;
+	this->_onboardingTutorialSubPresenter = NULL;
+	this->_gameManualSubPresenter = NULL;
+	this->_activeSubPresenter = NULL;
+}

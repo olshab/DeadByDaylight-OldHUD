@@ -1,21 +1,24 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "ECharacterDifficulty.h"
+#include "CustomizedMeshPart.h"
 #include "DBDTableRowBase.h"
 #include "EPlayerRole.h"
-#include "CustomizedMeshPart.h"
-#include "EGender.h"
+#include "ECharacterDifficulty.h"
+#include "SlideShowDescription.h"
 #include "EKillerAbilities.h"
+#include "UObject/SoftObjectPtr.h"
+#include "EGender.h"
 #include "DataTableProxy.h"
 #include "EKillerHeight.h"
-#include "SlideShowDescription.h"
 #include "CharacterDescription.generated.h"
 
 class UTexture2D;
 class APawn;
 
 USTRUCT(BlueprintType)
-struct DEADBYDAYLIGHT_API FCharacterDescription : public FDBDTableRowBase {
+struct FCharacterDescription: public FDBDTableRowBase
+{
 	GENERATED_BODY()
 
 public:
@@ -32,70 +35,86 @@ public:
 	FText DisplayName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName DebugName;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText BackStory;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText Biography;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString IconFilePath;
+	FName IconFilePath;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString BackgroundImagePath;
+	UTexture2D* HudIcon;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName BackgroundImagePath;
+
+	UPROPERTY(EditAnywhere)
 	TArray<FCustomizedMeshPart> CustomizationDescription;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString RequiredDlcIdString;
+	FString ChapterDlcId;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FName IdName;
+	TArray<FString> AdditionalDlcIds;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool AvailableIfDlcInstalled;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	FName DebugName;
+
+	UPROPERTY(EditAnywhere)
 	bool IsInChunk0;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere)
 	bool IsAvailableInNonViolentBuild;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere)
 	bool IsAvailableInAtlantaBuild;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 PlatformExclusiveFlag;
+	UPROPERTY(EditAnywhere)
+	uint32 PlatformExclusiveFlag;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<UBlueprint> GamePawn;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TSoftClassPtr<APawn> GamePawn;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<UBlueprint> MenuPawn;
+	UPROPERTY(EditAnywhere)
+	TSoftClassPtr<APawn> MenuPawn;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere)
 	FName DefaultItem;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere)
+	FName DefaultPerk;
+
+	UPROPERTY(EditAnywhere)
 	EGender Gender;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FString> CharacterPrefix;
+	UPROPERTY(EditAnywhere)
+	TArray<EKillerAbilities> KillerAbilities;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	EKillerAbilities KillerAbilities;
+	FDataTableProxy TunableDB;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TSoftObjectPtr<UDataTable> TunableDB;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere)
 	EKillerHeight KillerHeight;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FSlideShowDescription SlideShowDescriptions;
+
+	UPROPERTY(EditAnywhere)
+	bool HideStoreCustomizations;
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	ECustomizationCategory CustomizationCategories;
+	TArray<FName> CustomizationCategories;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	FString CharacterId;
 
 public:
-	FCharacterDescription();
+	DEADBYDAYLIGHT_API FCharacterDescription();
 };
 
+FORCEINLINE uint32 GetTypeHash(const FCharacterDescription) { return 0; }

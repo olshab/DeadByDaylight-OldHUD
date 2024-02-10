@@ -1,32 +1,39 @@
 #include "HudScreen.h"
 
-void UHudScreen::OnTutorialNotificationClosedByUserInput() {
+void UHudScreen::OnTutorialHudFadeOutTriggered()
+{
+
 }
 
-void UHudScreen::OnSpectatePlayerClick(const FString& name) {
+void UHudScreen::OnTutorialHudFadeInTriggered()
+{
+
 }
 
-void UHudScreen::OnSettingsClicked() {
+void UHudScreen::OnHUDWidgetFadeOutCompleted()
+{
+
 }
 
-void UHudScreen::OnQuitGameButtonClick() {
+void UHudScreen::OnHUDWidgetDelayCompleted() const
+{
+
 }
 
-void UHudScreen::OnPreviousButtonClick() {
+void UHudScreen::OnHideStartSequenceCompleted()
+{
+
 }
 
-void UHudScreen::OnPerkClicked(FName perkID, bool clickedOnPerkWidget) {
+void UHudScreen::OnHemorrhageAnimationComplete()
+{
+
 }
 
-void UHudScreen::OnNextButtonClick() {
+UHudScreen::UHudScreen()
+{
+	this->_rootWidget = NULL;
+	this->_tutorialsUtilities = NULL;
+	this->_playerStatusInterfaces = TArray<TScriptInterface<IPlayerStatusViewInterface>>();
+	this->_playerStatusViewData = TArray<FPlayerStatusViewData>();
 }
-
-void UHudScreen::OnLeaveButtonClick() {
-}
-
-void UHudScreen::OnCancelQuitGameButtonClick() {
-}
-
-UHudScreen::UHudScreen() {
-}
-

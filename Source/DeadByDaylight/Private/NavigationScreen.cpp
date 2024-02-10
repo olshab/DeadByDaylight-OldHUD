@@ -1,53 +1,96 @@
 #include "NavigationScreen.h"
 
-void UNavigationScreen::OnToggleChatVisibility() {
+void UNavigationScreen::OnToggleChatVisibility()
+{
+
 }
 
-void UNavigationScreen::OnStartButtonClick() {
+void UNavigationScreen::OnStartButtonClick()
+{
+
 }
 
-void UNavigationScreen::OnSettingsClick() {
+void UNavigationScreen::OnSettingsClick()
+{
+
 }
 
-void UNavigationScreen::OnSendChatMsgButtonClick(const FString& message) {
+void UNavigationScreen::OnSendChatMsgButtonClick(const FString& message)
+{
+
 }
 
-void UNavigationScreen::OnReadyButtonClick() {
+void UNavigationScreen::OnReadyButtonClick()
+{
+
 }
 
-void UNavigationScreen::OnPlayerOptionSelected(const FString& krakenId, const FString& playerId, uint8 option) {
+void UNavigationScreen::OnPlayerOptionSelected(const FString& krakenId, const FString& playerId, uint8 option)
+{
+
 }
 
-void UNavigationScreen::OnPlayerInfoClick(int32 playerId) {
+void UNavigationScreen::OnPlayerInfoClick(int32 playerId)
+{
+
 }
 
-void UNavigationScreen::OnMatchManagementButtonClick() {
+void UNavigationScreen::OnPerkPreviewPerkSlotClicked(int32 slotIndex)
+{
+
 }
 
-void UNavigationScreen::OnMatchMakingBanTimeout() {
+void UNavigationScreen::OnMatchManagementButtonClick()
+{
+
 }
 
-void UNavigationScreen::OnInviteFriendClick() {
+void UNavigationScreen::OnMatchMakingBanTimeout()
+{
+
 }
 
-void UNavigationScreen::OnDailyRitualsClick() {
+void UNavigationScreen::OnInviteFriendClick()
+{
+
 }
 
-void UNavigationScreen::OnCrowdPlayButtonClick() {
+void UNavigationScreen::OnFadeOutEnded()
+{
+
 }
 
-void UNavigationScreen::OnChatInputMouseOver(bool isMouseOver) {
+void UNavigationScreen::OnDailyRitualsClick()
+{
+
 }
 
-void UNavigationScreen::OnCharacterSwapArrowClick(bool isNext) {
+void UNavigationScreen::OnChatInputMouseOver(bool isMouseOver)
+{
+
 }
 
-void UNavigationScreen::OnCharacterInfoClick() {
+void UNavigationScreen::OnCharacterSwapArrowClick(bool isNext)
+{
+
 }
 
-void UNavigationScreen::OnCancelButtonClick() {
+void UNavigationScreen::OnCancelButtonClick()
+{
+
 }
 
-UNavigationScreen::UNavigationScreen() {
+void UNavigationScreen::OnBankClick(int32 currencyTypeInt)
+{
+
 }
 
+void UNavigationScreen::OnAddPlayerClick(int32 buttonId)
+{
+
+}
+
+UNavigationScreen::UNavigationScreen()
+{
+
+}

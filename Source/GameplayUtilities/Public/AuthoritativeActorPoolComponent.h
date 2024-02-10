@@ -1,36 +1,32 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "Templates/SubclassOf.h"
-#include "Components/ActorComponent.h"
+#include "ActorPoolComponent.h"
 #include "AuthoritativeActorPoolComponent.generated.h"
 
 class AActor;
 
 UCLASS(EditInlineNew, meta=(BlueprintSpawnableComponent))
-class GAMEPLAYUTILITIES_API UAuthoritativeActorPoolComponent : public UActorComponent {
-    GENERATED_BODY()
-public:
-protected:
-    UPROPERTY(EditAnywhere)
-    TSubclassOf<AActor> _actorClass;
-    
-    UPROPERTY(EditAnywhere)
-    int32 _size;
-    
+class GAMEPLAYUTILITIES_API UAuthoritativeActorPoolComponent : public UActorPoolComponent
+{
+	GENERATED_BODY()
+
 private:
-    UPROPERTY(Transient, ReplicatedUsing=OnRep_Pool)
-    TArray<AActor*> _pool;
-    
-public:
-    UAuthoritativeActorPoolComponent();
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-    
+	UPROPERTY(ReplicatedUsing=OnRep_ReplicatedPool, Transient)
+	TArray<AActor*> _replicatedPool;
+
+	UPROPERTY(Transient)
+	TArray<AActor*> _local_oldPool;
+
 private:
-    UFUNCTION()
-    void OnRep_Pool(TArray<AActor*> previousPool);
-    
-    UFUNCTION()
-    void Authority_OnActorDestroyed(AActor* destroyedActor);
-    
+	UFUNCTION()
+	void OnRep_ReplicatedPool();
+
+public:
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+public:
+	UAuthoritativeActorPoolComponent();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UAuthoritativeActorPoolComponent) { return 0; }

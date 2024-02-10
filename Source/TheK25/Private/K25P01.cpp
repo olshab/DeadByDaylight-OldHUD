@@ -3,25 +3,39 @@
 
 class AGenerator;
 
-void UK25P01::OnRep_GeneratorsBlocked() {
+void UK25P01::OnRep_GeneratorsBlocked()
+{
+
 }
 
-void UK25P01::Authority_OnBlockTimerDone(AGenerator* generator) {
+float UK25P01::GetGeneratorBlockDuration() const
+{
+	return 0.0f;
 }
 
-void UK25P01::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(UK25P01, _generatorsBlocked);
+float UK25P01::GetAuraRevealDuration() const
+{
+	return 0.0f;
 }
 
-UK25P01::UK25P01() {
-    this->_generatorBlockDuration[0] = 0.00f;
-    this->_generatorBlockDuration[1] = 0.00f;
-    this->_generatorBlockDuration[2] = 0.00f;
-    this->_auraRevealDuration[0] = 0.00f;
-    this->_auraRevealDuration[1] = 0.00f;
-    this->_auraRevealDuration[2] = 0.00f;
-    this->_allowPerkToBlockZeroProgressionGenerators = false;
+void UK25P01::Authority_OnBlockTimerDone(AGenerator* generator)
+{
+
 }
 
+void UK25P01::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(UK25P01, _generatorsBlocked);
+}
+
+UK25P01::UK25P01()
+{
+	this->_generatorBlockDuration = 0.000000;
+	this->_auraRevealDuration = 0.000000;
+	this->_allowPerkToBlockZeroProgressionGenerators = false;
+	this->_generatorBlockingTimers = TArray<FFastTimer>();
+	this->_generatorsBlocked = TArray<AGenerator*>();
+	this->_local_generatorsBlocked = TArray<AGenerator*>();
+}

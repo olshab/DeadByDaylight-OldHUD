@@ -1,36 +1,37 @@
 #include "YellowGlyphComponent.h"
+#include "UObject/NoExportTypes.h"
 
 class AGlyph;
 
-void UYellowGlyphComponent::TriggerSkillCheck(float currentTickerLocation) {
+void UYellowGlyphComponent::OnLevelReadyToPlay()
+{
+
 }
 
+void UYellowGlyphComponent::Multicast_TeleportGlyph_Implementation(FVector location)
+{
 
-
-void UYellowGlyphComponent::OnSkillCheck(bool hadInput, bool success, bool bonus, ESkillCheckCustomType type) {
 }
 
-void UYellowGlyphComponent::OnLevelReadyToPlay() {
+AGlyph* UYellowGlyphComponent::GetOwningGlyph() const
+{
+	return NULL;
 }
 
-void UYellowGlyphComponent::Multicast_TeleportGlyph_Implementation(FVector location) {
+bool UYellowGlyphComponent::Authority_TeleportGlyph(int32 maxNumberOfTries)
+{
+	return false;
 }
 
-AGlyph* UYellowGlyphComponent::GetOwningGlyph() const {
-    return NULL;
+UYellowGlyphComponent::UYellowGlyphComponent()
+{
+	this->_currentlyInteractingPlayer = NULL;
+	this->_skillCheckDuration = 1.200000;
+	this->_skillCheckZoneLength = 0.200000;
+	this->_skillCheckDelay = 0.500000;
+	this->_skillCheckAverageDistance = 0.500000;
+	this->_skillCheckDistanceVariance = 0.100000;
+	this->_teleportDelay = 2.000000;
+	this->_survivorSpawns = TArray<UTileSpawnPoint*>();
+	this->_allGlyphs = TArray<AGlyph*>();
 }
-
-bool UYellowGlyphComponent::Authority_TeleportGlyph(int32 maxNumberOfTries) {
-    return false;
-}
-
-UYellowGlyphComponent::UYellowGlyphComponent() {
-    this->_currentlyInteractingPlayer = NULL;
-    this->_skillCheckDuration = 1.20f;
-    this->_skillCheckZoneLength = 0.20f;
-    this->_skillCheckDelay = 0.50f;
-    this->_skillCheckAverageDistance = 0.50f;
-    this->_skillCheckDistanceVariance = 0.10f;
-    this->_teleportDelay = 2;
-}
-

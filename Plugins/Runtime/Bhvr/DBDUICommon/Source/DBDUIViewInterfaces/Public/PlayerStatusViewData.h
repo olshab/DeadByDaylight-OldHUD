@@ -1,58 +1,67 @@
 #pragma once
+
 #include "CoreMinimal.h"
-#include "DoctorStatusData.h"
-#include "NightmareStatusData.h"
 #include "EPlayerStatus.h"
 #include "EObsessionUIState.h"
 #include "EConnectionQuality.h"
-#include "KillerStatusData.h"
 #include "PlayerStatusViewData.generated.h"
 
 class UTexture2D;
+class UKillerStatusData;
 
 USTRUCT(BlueprintType)
-struct FPlayerStatusViewData {
-    GENERATED_BODY()
+struct FPlayerStatusViewData
+{
+	GENERATED_BODY()
+
 public:
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    FString PlayerName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FString PlayerName;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere, Transient)
-    UTexture2D* PlayerPortraitIcon;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Transient)
+	UTexture2D* PlayerPortraitIcon;
 
-    UPROPERTY(BlueprintReadOnly, Transient)
-    UTexture2D* PlayerPortraitIconOverride;
+	UPROPERTY(BlueprintReadOnly, Transient)
+	UTexture2D* PlayerPortraitIconOverride;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    EPlayerStatus PlayerStatusState;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EPlayerStatus PlayerStatusState;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    float TimerProgress;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    bool IsDeepWound;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    bool IsBroken;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    bool IsBot;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float TimerProgress;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    bool IsLocalPlayerAKiller;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsDeepWound;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    EObsessionUIState ObsessionState;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsBroken;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    int32 DrainStage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsBot;
 
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    EConnectionQuality ConnectionQualityStatus;
-    
-    UPROPERTY(BlueprintReadWrite, EditAnywhere)
-    FKillerStatusData KillerStatusData;
-    
-    DBDUIVIEWINTERFACES_API FPlayerStatusViewData();
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsLocalPlayerAKiller;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsActivityHidden;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EObsessionUIState ObsessionState;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 DrainStage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EConnectionQuality ConnectionQualityStatus;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UKillerStatusData* KillerStatusData;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float CampProgress;
+
+public:
+	DBDUIVIEWINTERFACES_API FPlayerStatusViewData();
 };
 
+FORCEINLINE uint32 GetTypeHash(const FPlayerStatusViewData) { return 0; }

@@ -1,20 +1,29 @@
 #include "Hoarder.h"
+#include "EInventoryType.h"
 
+class ACollectable;
+class ACamperPlayer;
 
-float UHoarder::GetBubbleIndicatorLifetime() const {
-    return 0.0f;
+void UHoarder::OnItemRemovedFromPlayer(ACollectable* item, EInventoryType inventoryType)
+{
+
 }
 
-UHoarder::UHoarder() {
-    this->_camperInteractItemPickupRevealRange[0] = 0.00f;
-    this->_camperInteractItemPickupRevealRange[1] = 0.00f;
-    this->_camperInteractItemPickupRevealRange[2] = 0.00f;
-    this->_extraChestsSpawned[0] = 0;
-    this->_extraChestsSpawned[1] = 0;
-    this->_extraChestsSpawned[2] = 0;
-    this->_bubbleIndicatorLifetime[0] = 0.00f;
-    this->_bubbleIndicatorLifetime[1] = 0.00f;
-    this->_bubbleIndicatorLifetime[2] = 0.00f;
-    this->_showUniqueChestVisualPerState = true;
+void UHoarder::OnItemAddedToPlayer(ACollectable* item, EInventoryType inventoryType, ACamperPlayer* player)
+{
+
 }
 
+float UHoarder::GetBubbleIndicatorLifetime() const
+{
+	return 0.0f;
+}
+
+UHoarder::UHoarder()
+{
+	this->_chests = TArray<ASearchable*>();
+	this->_camperInteractItemPickupRevealRange = 0.000000;
+	this->_extraChestsSpawned = 0;
+	this->_bubbleIndicatorLifetime = 0.000000;
+	this->_showUniqueChestVisualPerState = true;
+}

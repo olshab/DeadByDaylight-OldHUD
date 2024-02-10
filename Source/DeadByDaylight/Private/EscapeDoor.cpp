@@ -1,108 +1,100 @@
 #include "EscapeDoor.h"
+#include "UObject/NoExportTypes.h"
+#include "Components/SceneComponent.h"
+#include "AkComponent.h"
 #include "Net/UnrealNetwork.h"
 #include "ChargeableComponent.h"
-#include "AkComponent.h"
-#include "BlockableComponent.h"
-#include "Components/SceneComponent.h"
 #include "Perception/AIPerceptionStimuliSourceComponent.h"
+#include "BlockableComponent.h"
 
-class AEscapeBlocker;
 class ADBDPlayer;
-class ACamperPlayer;
 class AActor;
 class USkeletalMeshComponent;
 
-void AEscapeDoor::StartAtlantaDoorOpeningSound() {
+void AEscapeDoor::SetIsActivated(bool isActivated)
+{
+
 }
 
-void AEscapeDoor::StartAtlantaDoorBeepingSound() {
+void AEscapeDoor::OnRep_Activated(bool oldActivated)
+{
+
 }
 
-void AEscapeDoor::SetIsActivated(bool NewIsActivated) {
+void AEscapeDoor::OnPlayerExitExitArea(ADBDPlayer* player)
+{
+
 }
 
+void AEscapeDoor::OnPlayerEnterExitArea(ADBDPlayer* player)
+{
 
-void AEscapeDoor::OnRep_OnEscapeBlockerSet(AEscapeBlocker* escapeBlockerInstance) {
 }
 
-void AEscapeDoor::OnRep_Activated(bool oldActivated) {
+void AEscapeDoor::OnExitGateOpened(ADBDPlayer* player)
+{
+
 }
 
-void AEscapeDoor::OnPlayerExitExitArea(ADBDPlayer* player) {
+void AEscapeDoor::OnEscapeZoneEndOverlap(AActor* overlappingActor)
+{
+
 }
 
-void AEscapeDoor::OnPlayerEnterExitArea(ADBDPlayer* player) {
+void AEscapeDoor::OnEscapeZoneBeginOverlap(AActor* overlappingActor)
+{
+
 }
 
-
-void AEscapeDoor::OnExitGateOpened(ADBDPlayer* player) {
+bool AEscapeDoor::IsDoorSwitchBlocked() const
+{
+	return false;
 }
 
-
-void AEscapeDoor::OnEscapeZoneEndOverlap(AActor* overlappingActor) {
+bool AEscapeDoor::IsActivated() const
+{
+	return false;
 }
 
-void AEscapeDoor::OnEscapeZoneBeginOverlap(AActor* overlappingActor) {
+FVector AEscapeDoor::GetParadiseServerLocation_Implementation() const
+{
+	return FVector{};
 }
 
-void AEscapeDoor::OnCamperStartOpeningExitGate(ACamperPlayer* player) {
+float AEscapeDoor::GetOpenTime() const
+{
+	return 0.0f;
 }
 
-
-
-bool AEscapeDoor::IsDoorSwitchBlocked() const {
-    return false;
+bool AEscapeDoor::GetIsOpen() const
+{
+	return false;
 }
 
-bool AEscapeDoor::IsActivated() const {
-    return false;
+USkeletalMeshComponent* AEscapeDoor::GetDoorSkeletalMeshComponent_Implementation() const
+{
+	return NULL;
 }
 
+void AEscapeDoor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-FVector AEscapeDoor::GetParadiseServerLocation_Implementation() const {
-    return FVector{};
+	DOREPLIFETIME(AEscapeDoor, _activated);
 }
 
-float AEscapeDoor::GetOpenTime() const {
-    return 0.0f;
+AEscapeDoor::AEscapeDoor()
+{
+	this->EscapePositions = TArray<FVector>();
+	this->EscapeFire = TArray<UObject*>();
+	this->_killerOpenChargeable = CreateDefaultSubobject<UChargeableComponent>(TEXT("KillerOpenChargeable"));
+	this->_openChargeable = CreateDefaultSubobject<UChargeableComponent>(TEXT("openChargeable"));
+	this->_ak_audio_escape = CreateDefaultSubobject<UAkComponent>(TEXT("ak_audio_escape"));
+	this->_escapeDoorAnimInstance = NULL;
+	this->_rootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("rootComponent"));
+	this->_activated = false;
+	this->_spotlight = NULL;
+	this->_localOverlappingSurvivors = TArray<TWeakObjectPtr<ACamperPlayer>>();
+	this->_perceptionStimuliComponent = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("AIPerceptionStimuliSourceComponent"));
+	this->_doorSwitchBlockableComponent = CreateDefaultSubobject<UBlockableComponent>(TEXT("DoorSwitchBlockableComponent"));
 }
-
-
-bool AEscapeDoor::GetIsOpen() const {
-    return false;
-}
-
-
-
-USkeletalMeshComponent* AEscapeDoor::GetDoorSkeletalMeshComponent_Implementation() const {
-    return NULL;
-}
-
-bool AEscapeDoor::GetAtlantaExitOpeningIndicatorVisibility() const {
-    return false;
-}
-
-void AEscapeDoor::Authority_SetEscapeBlocker() {
-}
-
-void AEscapeDoor::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const {
-    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-    
-    DOREPLIFETIME(AEscapeDoor, _activated);
-    DOREPLIFETIME(AEscapeDoor, _escapeBlockerInstance);
-}
-
-AEscapeDoor::AEscapeDoor() {
-    this->_killerOpenChargeable = CreateDefaultSubobject<UChargeableComponent>(TEXT("KillerOpenChargeable"));
-    this->_openChargeable = CreateDefaultSubobject<UChargeableComponent>(TEXT("openChargeable"));
-    this->_ak_audio_escape = CreateDefaultSubobject<UAkComponent>(TEXT("ak_audio_escape"));
-    this->_escapeDoorAnimInstance = NULL;
-    this->_rootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("rootComponent"));
-    this->_activated = false;
-    this->_escapeBlockerInstance = NULL;
-    this->_spotlight = NULL;
-    this->_localOverlappingCamper = NULL;
-    this->_perceptionStimuliComponent = CreateDefaultSubobject<UAIPerceptionStimuliSourceComponent>(TEXT("AIPerceptionStimuliSourceComponent"));
-    this->_doorSwitchBlockableComponent = CreateDefaultSubobject<UBlockableComponent>(TEXT("DoorSwitchBlockableComponent"));
-}
-

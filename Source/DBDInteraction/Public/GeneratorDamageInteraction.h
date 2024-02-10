@@ -1,18 +1,23 @@
 #pragma once
+
 #include "CoreMinimal.h"
 #include "ChargeableInteractionDefinition.h"
+#include "GameplayTagContainer.h"
 #include "GeneratorDamageInteraction.generated.h"
 
-class ADBDPlayer;
-class AGenerator;
+class UAkAudioEvent;
 
 UCLASS(EditInlineNew, meta=(BlueprintSpawnableComponent))
-class UGeneratorDamageInteraction : public UChargeableInteractionDefinition {
-    GENERATED_BODY()
+class DBDINTERACTION_API UGeneratorDamageInteraction : public UChargeableInteractionDefinition
+{
+	GENERATED_BODY()
+
+private:
+	UPROPERTY(EditDefaultsOnly)
+	TMap<FGameplayTag, UAkAudioEvent*> _canceledSfxBasedOnKiller;
+
 public:
-    UGeneratorDamageInteraction();
-    UFUNCTION(BlueprintAuthorityOnly, BlueprintCallable, BlueprintPure=false)
-    void Authority_DamageGenerator(ADBDPlayer* damageBy, AGenerator* generator) const;
-    
+	UGeneratorDamageInteraction();
 };
 
+FORCEINLINE uint32 GetTypeHash(const UGeneratorDamageInteraction) { return 0; }
